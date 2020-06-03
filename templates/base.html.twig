@@ -9,7 +9,8 @@
 		<meta name="application-name" content="Edition Vesoul">
 		<meta name="author" content="GIRARD Benjamin">
 		<meta name="description" content="Site eCommerce de vente de livres par l'association Vesoul Edition">
-		<meta name="keywords" content="Edition, Vesoul, livre, librairie, histoire">
+		<meta
+		name="keywords" content="Edition, Vesoul, livre, librairie, histoire">
 
 		{# Font Awesome #}
 		<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -31,7 +32,9 @@
 			<header class="sticky-top">
 				<nav class="row py-3 m-0">
 					<div class="col-3 d-flex align-items-center justify-content-center ">
-						<a class="brand" href="{{ path('home') }}">Vesoul Edition<span class="pl-1">.</span>
+						<a class="brand" href="
+													{# {{ path('home') }} #}
+													">Vesoul Edition<span class="pl-1">.</span>
 						</a>
 					</div>
 					{# ======== Recherche ========#}
@@ -45,9 +48,13 @@
 					<div class="col-3 d-flex align-items-center justify-content-center">
 						<div class="d-flex align-items-center justify-content-end">
 							{% if not app.user %}
-								<a class="m-0 pr-3" href="{{ path('security_user_login') }}">Mon espace</a>
+								<a class="m-0 pr-3" href="
+																	{# {{ path('security_user_login') }} #}
+																	">Mon espace</a>
 							{% else %}
-								<a class="m-0 pr-3" href="{{ path('security_user_logout') }}">Deconnexion</a>
+								<a class="m-0 pr-3" href="
+																	{# {{ path('security_user_logout') }} #}
+																	">Deconnexion</a>
 							{% endif %}
 							<i class="fas fa-user user-icon p-2 m-0"></i>
 
@@ -56,7 +63,9 @@
 								<a href="panier" class="d-flex flex-column justify-content-center">
 									<div>
 										<i class="fas fa-shopping-cart"></i>
-										<span id="nb-items" class="badge badge-pill badge-warning">{{ app.session.get('panier') | length}}</span>
+										<span
+											id="nb-items" class="badge badge-pill badge-warning">{# {{ app.session.get('panier') | length}} #}
+										</span>
 									</div>
 									<p class="m-0">panier</p>
 								</a>
@@ -110,61 +119,7 @@
 			<main class="container"> {% block content %}{% endblock %}
 				</main>
 
-				<footer>
-					<div class="container py-5">
-						<hr>
-						<div
-							class="row">
-							{# ======== Navigation ========#}
-							<div class="col-4 p-0">
-								<h3 class="w-100 text-left">Navigation</h3>
-								<ul class="d-flex flex-column p-0 m-0">
-									<a href="#" class="text-left">Accueil</a>
-									<a href="#" class="text-left">Mon compte</a>
-									<a href="#" class="text-left">Inscription</a>
-									<a href="#" class="text-left">Panier</a>
-								</ul>
-							</div>
-							{# ======== Mentions légales ========#}
-							<div class="col-4 p-0 d-flex flex-column justify-content-center align-items-center">
-								<h3 class="w-100 text-center footer-title-mention">Mentions legales</h3>
-								<ul class="d-flex flex-column p-0 m-0">
-									<a href="#" class="text-center">Conditions Générales de Vente</a>
-									<a href="#" class="text-center">RGPD</a>
-								</ul>
-							</div>
-							{# ======== Newsletter ========
-							                    <div class="col-3 d-flex flex-column align-items-center">
-							                        <h3 class="m-0 py-2">Newsletter</h3>
-							                        <form id="newsletter" class="d-flex my-2 my-lg-0 pt-4">
-							                            <input class="form-control m-0" type="email" placeholder="Votre adresse email">
-							                            <button class="btn-newsletter btn btn-info m-0" type="submit">S'inscrire</button>
-							                        </form>
-							                    </div> #}
-							{# ======== Contacts ========#}
-							<div class="col-4 p-0 d-flex flex-column align-items-center">
-								<h3 class="w-100 text-right">Contacts</h3>
-								<ul class="d-flex flex-column w-100 p-0 m-0">
-									<li class="text-right">
-										<p class="p-0 m-0">
-											Vesoul-Edition - BP 103870001
-											<br>
-											VESOUL 70000 Cedex - France
-										</p>
-									</li>
-									<li class="text-right">
-										<a class="w-100 text-right" href="callto://+33699658600">06 99 65 86 00</a>
-									</li>
-									<li class="text-right">
-										<a class="w-100 text-right" href="mailto:vesouledition@sfr.fr">vesouledition@sfr.fr</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<hr>
-
-					</div>
-				</footer>
+				{% include "includes/footer.html.twig" %}
 
 			</div>
 
