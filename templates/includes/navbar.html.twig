@@ -2,7 +2,7 @@
 <header class="sticky-top">
 	<nav class="row py-3 m-0">
 		<div class="col-3 d-flex align-items-center justify-content-center ">
-			<a class="brand" href="{# {{ path('home') }} #}">Vesoul Edition<span class="pl-1">.</span>
+			<a class="brand" href="{{ path('shop-home') }}">Vesoul Edition<span class="pl-1">.</span>
 			</a>
 		</div>
 
@@ -29,8 +29,8 @@
                     <a href="panier" class="d-flex flex-column justify-content-center">
                         <div>
                             <i class="fas fa-shopping-cart"></i>
-                            <span
-                                id="nb-items" class="badge badge-pill badge-warning">{# {{ app.session.get('panier') | length}} #}
+                            <span id="nb-items" class="badge badge-pill badge-warning">
+                                {{ app.session.get('panier') | length}}
                             </span>
                         </div>
                         <p class="m-0">panier</p>
@@ -64,7 +64,7 @@
                         <p class="m-0">06 99 65 86 00</p>
                     </div>
                 </div>
-                
+
                 {# ======== Paiement ========#}
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     <i class="fas fa-money-check-alt m-3"></i>
