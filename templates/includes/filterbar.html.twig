@@ -1,0 +1,149 @@
+{# filtrerbar ===================================== #}
+<div class="col-4 p-0 m-0" id="filters">
+	<div class="row p-0 m-0">
+		<div class="title col-12 d-flex justify-content-center align-items-center ">
+			<h2 class="m-0">Filtrer par</h2>
+		</div>
+	</div>
+
+	<form action="">
+
+		{# => Sous secton Badges ----------------- #}
+		<div class="row p-0 m-0">
+			<div id="badges" class="col-12 p-2 d-flex flex-wrap"></div>
+		</div>
+		{# => Fin Sous section Badges ----------- #}
+
+		{# Sous-section nouveautés --------------- #}
+		<div class="row p-0 m-0">
+			<div class="col-12 p-2 m-0 align-items-center">
+				<div class="p-0 pl-3 m-0">
+					<label class="check-container m-0" for="news">Nouveautés
+						<input type="checkbox" class="form-check-input" id="news">
+						<span class="checkmark"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		{# Fin Sous-section nouveautés------------ #}
+        
+		{# => Sous secton Années------------------- #}
+		<div class="row p-0 m-0">
+			<div class="price col-12 p-2">
+				<div class="m-0 p-0 d-flex justify-content-between">
+					<h3 class="pl-2 pt-3">Année</h3>
+					<button id="expand-year" class="mr-2 expand-button active">+</button>
+				</div>
+				<div id="year-slider" class="filter-section d-flex justify-content-center active">
+					<p>
+						<label for="amount"></label>
+						<input type="text" id="amount" readonly style="border:0; color:#212529;">
+					</p>
+
+					<div id="slider-range"></div>
+				</div>
+			</div>
+		</div>
+		{# => Fin Sous section Années ------------- #}
+
+		{# => Sous secton Genre ------------------ #}
+		<div class="row p-0 m-0">
+			<div class="col-12 p-2">
+				<div class="m-0 p-0 pt-2 d-flex justify-content-between">
+					<h3 class="pl-2">Genre</h3>
+					<button id="expand-genra" class="mr-2 p-0 m-0 expand-button active">+</button>
+				</div>
+				<ul
+					id="genra-list" class="filter-section d-flex flex-column p-0 m-0 active">
+                    {# {% for genra in genras %}
+															                            <div class="d-flex px-3 p-2">
+															                                <label class="check-container" for="{{genra.name}}">{{genra.name}}
+															                                    <input type="checkbox" class="form-check-input" data-type="genre" id="{{genra.name}}">
+															                                    <span class="checkmark"></span>
+															                                </label>
+															                            </div>
+															                            {% endfor %} #}
+				</ul>
+			</div>
+		</div>
+		{# => Fin Sous section genre -------------- #}
+
+		{# => Sous secton Auteur ---------------- #}
+		<div class="row p-0 m-0">
+			<div class="col-12 p-2">
+				<div class="m-0 p-0 d-flex justify-content-between">
+					<h3 class="pl-2">Auteur</h3>
+					<button id="expand-author" class="mr-2 expand-button active">+</button>
+				</div>
+				<ul
+					id="author-list" class="filter-section d-flex flex-column p-0 m-0 mt-3 active">
+                    {# {% for author in authors %}
+															                            <div class="d-flex px-3 p-2">
+															                                <label class="check-container" for="{{author.firstname}}-{{author.lastname}}">{{author.firstname}}
+															                                    {{author.lastname}}
+															                                    <input type="checkbox" class="form-check-input" data-type="author" id="{{author.firstname}}-{{author.lastname}}">
+															                                    <span class="checkmark"></span>
+															                                </label>
+															                            </div>
+															                            {% endfor %} #}
+				</ul>
+			</div>
+		</div>
+		{# => Fin Sous section Auteur ----------- #}
+
+		{# Sous section submit -------------------- #}
+		<div class="row p-0 m-0">
+			<div class="col-12 d-flex justify-content-center align-items-center p-3">
+				<button type="button" id="applyFilter" class="btn btn-info m-2">Appliquer les filtres</button>
+				<button type="button" id="desactivateFilter" class="btn btn-light m-2">Enlever tous les filtres</button>
+			</div>
+		</div>
+		{# Fin Sous section submit --------------- #}
+
+	</form>
+
+</div>
+{# End of filterbar ======================================= #}
+
+{# result-part ============================ #}
+<div class="col-8">
+	
+	<div class="row" id="sort">
+		<div class="col-6 d-flex align-items-center">
+			<p class="m-0">
+				<span id="totalPage">
+					{% if books is defined %}
+						{% if books | length > 0 %}
+							{{  books | length }}
+						{% else %}
+							0
+						{% endif %}
+					{% endif %}
+				</span>
+				Livre(s) trouvé(s)
+
+				{% if books is defined %}
+					<span class="search-result-phras">
+						Recherche :
+						<span class="search-keyword">"
+							{# {{ searchValue }} #}
+							come back for dev ;)"
+                        </span>
+                    </span>
+                {% endif %}
+
+			</p>
+		</div>
+        
+		<div class="col-6 d-flex justify-content-end align-items-center">
+			<label for="sort-select" class="m-0 p-2">Trier par :
+			</label>
+			<select class="custom-select" name="sort-select" id="sort-select">
+				<option value="ascName">Noms croissants</option>
+				<option value="descName">Noms décroissants</option>
+				<option value="ascYear">Années croissantes</option>
+				<option value="descYear">Années décroissantes</option>
+			</select>
+		</div>
+	</div>
+	{# End of result-part =============================== #}
