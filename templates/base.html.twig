@@ -17,13 +17,12 @@
 		<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
 		{# Style #}
-		<link rel="stylesheet" href="css/jquery-ui.min.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/style.css">
-
+		<link rel="stylesheet" href="/css/jquery-ui.min.css">
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/style.css">
 
 		<title>
-			{% block title %}{% endblock %}
+			{% block title %}Vesoul-Edition{% endblock %}
 		</title>
 	</head>
 
@@ -41,13 +40,13 @@
 		</div>
 
 
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery-ui.min.js"></script>
-		<script src="js/script.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.bundle.min.js"></script>
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/jquery-ui.min.js"></script>
+		<script src="/js/script.js"></script>
 
-		{% if minyear is defined %}
+		{# {% if minyear is defined %}
 			<script>
 				$("#slider-range").slider({range: true, min: {{ minyear }}, max: {{ maxyear }}, values: [{{ minyear }}, {{maxyear }}],slide: function (event, ui) {$("#amount").val(ui.values[0] + " - " + ui.values[1]);}});
 
@@ -67,7 +66,7 @@
 					];
 				}
 			</script>
-		{% endif %}
+		{% endif %} #}
 
 	</body>
 </html>

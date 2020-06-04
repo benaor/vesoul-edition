@@ -1,0 +1,82 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}
+	{{ book.title }}
+{% endblock %}
+
+{% block content %}
+	<div id="product-page" class="m-0 p-0">
+			<div class="row m-0 p-5">
+
+				{# ==> Section gauche avec les images ======================================== #}
+				<div
+					id="preview-section" class="col-6 m-0 p-0 d-flex align-items-end d-flex flex-column">
+
+					{# ---------- Image principale ---------- #}
+					<img
+					id="preview-img" src="{{book.image}}" alt="livre">
+
+					{# ---------- Carousel ----------- #}
+					<div id="preview-small-section" class="d-flex align-items-center justify-content-between pt-2">
+						<button>
+							<i class="fas fa-chevron-left fa-2x"></i>
+						</button>
+						<img class="preview-small" src="{{book.image}}" alt="livre">
+						<img class="preview-small" src="{{book.image}}" alt="livre">
+						<img class="preview-small" src="{{book.image}}" alt="livre">
+						<button>
+							<i class="fas fa-chevron-right fa-2x"></i>
+						</button>
+					</div>
+				</div>
+
+				{# ==> Section de droite informations ======================================== #}
+				<div id="detail-section" class="col-6 m-0 p-5">
+					<h2 class="mb-4">{{book.title}}</h2>
+					{# <h3 class="m-0 pt-3 pb-4">{{book.firstname}}
+										{{book.lastname}}</h3> #}
+					<div class="d-flex align-items-center pb-4">
+						<div id="stock-circle" class="mr-3"></div>
+						<p class="stock m-0">en stock</p>
+					</div>
+				</div>
+				<p id="description">{{book.description}}</p>
+
+				{# Année de sortie #}
+				<div class="py-2 d-flex align-items-center">
+					<p class="legend m-0 pr-2">Année :
+					</p>
+					<p class="m-0">{{book.year}}</p>
+				</div>
+				{# fin année de sortie #}
+
+				<div class="pt-2 d-flex align-items-center">
+					<p class="legend m-0 pr-2">Code ISBN :</p>
+					<p class="m-0">{{book.isbn}}</p>
+				</div>
+                
+				<div class="d-flex justify-content-between">
+					<div class="d-flex align-items-center">
+						<p class="legend m-0 pr-2">Prix publique :</p>
+						<p class="m-0" id="price">{{book.price}}
+							€</p>
+					</div>
+					<div class="m-0 py-5 d-flex align-items-center">
+						<p class="legend m-0 pr-4">Quantité :</p>
+						<p class="m-0 p-3" id="quantite">1</p>
+						<button class="btn-quantity btn btn-info d-flex justify-content-center align-items-center product-details-add">+</button>
+						<button class="btn-quantity btn btn-light d-flex justify-content-center align-items-center">-</button>
+					</div>
+				</div>
+				<div class="d-flex justify-content-center">
+					<form action="/panier/add/{{ book.id }}">
+						<input type="hidden" value="1" name="quantity">
+						<button class="btn btn-info d-flex justify-content-center align-items-center mt-4">
+							<i class="fas fa-shopping-cart fa-2x pr-2"></i>
+							Ajouter au panier</button>
+					</form>
+				</div>
+			</div>
+		</div>
+</div>
+{% endblock %}

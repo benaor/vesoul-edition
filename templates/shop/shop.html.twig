@@ -22,9 +22,9 @@
 								<div class="m-0 p-2">
 									<div class="book-card">
 										<div class="photo">
-											<img class="book-pic" src="{{book.images}}" alt="image du livre">
+											<img class="book-pic" src="{{book.image}}" alt="image du livre">
 											<div class="overlay d-flex justify-content-center  align-items-center">
-												<a href="product/{{book.id}}">
+												<a href="{{ path('show_book', { 'id' : book.id }) }}">
 													<button class="btn btn-info p-2">Details</button>
 												</a>
 											</div>
@@ -40,7 +40,7 @@
 														<span>{{book.price}}</span>€</p>
 												</div>
 												<div class="col-8 d-flex justify-content-end">
-													<a href="{{ path('addItem',{ 'id':book.id }) }}">
+													<a href="">
 														<button class="btn btn-info">Ajouter<i class="fas fa-shopping-cart"></i>
 														</button>
 													</a>
@@ -72,5 +72,6 @@
 				</div>
 			</div>
 		</div>
-	</div></section>
+	</div>
+</section>
 {% endblock %}
