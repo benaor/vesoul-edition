@@ -1,0 +1,42 @@
+<span class="hamburger d-block d-sm-block d-md-block d-lg-none d-xl-none">
+	<div class="btn-menu"></div>
+	<div class="btn-menu"></div>
+	<div class="btn-menu"></div>
+</span>
+
+<div class="navigation d-flex flex-column justify-content-between">
+	<nav class="menu-liste d-flex flex-column">
+		<p class="closeBtn text-right pt-3 pt-sm-3 pt-md-4 pt-lg-4 pt-xl-4 pr-4 pr-sm-3 pr-md-4 pr-lg-4 pr-xl-4 d-block d-sm-block d-md-block d-lg-none d-xl-none">X</p>
+		<a class="pb-1 pb-sm-1 pb-md-4 pb-lg-4 pb-xl-4 pt-1 pt-sm-1 pt-md-1 pt-lg-5 pt-xl-5 text-center" href=" {{ path('dashboard_admin_home') }} ">
+			<h1>Pannel administrateur</h1>
+		</a>
+		<hr>
+		<a class="button-menu py-3 pl-5 pl-sm-3 pl-md-2 pl-lg-2 pl-xl-2" href=" {{ path('dashboard_admin_home') }} ">
+			<i class="p-1 fas fa-home"></i>
+			ACCUEIL</a>
+		<hr>
+		<a class="button-menu py-3 pl-5 pl-sm-3 pl-md-2 pl-lg-2 pl-xl-2" href=" {{ path('dashboard_admin_livres') }} ">
+			<i class="p-1 fas fa-book"></i>
+			LIVRES</a>
+		<hr>
+
+		<a class="button-menu py-3 pl-5 pl-sm-3 pl-md-2 pl-lg-2 pl-xl-2" href=" {{ path('dashboard_admin_commandes') }} ">
+			<i class="p-1 fas fa-dolly"></i>
+			COMMANDES</a>
+		<hr>
+		<a class="button-menu py-3 pl-5 pl-sm-3 pl-md-2 pl-lg-2 pl-xl-2" href=" {{ path('dashboard_admin_boutique') }} ">
+			<i class="p-1 fas fa-building"></i>
+			INFO BOUTIQUE</a>
+		<hr>
+		<a class="button-menu py-3 pl-5 pl-sm-3 pl-md-2 pl-lg-2 pl-xl-2" href=" {{ path('dashboard_admin_mentions') }} ">
+			<i class="p-1 fas fa-file-alt"></i>
+			MENTIONS LEGALES</a>
+	</nav>
+	<a class="deconnexion text-center pt-2 pb-5" href="{{ path('security_admin_logout')}}">DECONNEXION</a>
+</div>
+
+<main class="d-flex flex-column align-items-center">
+	<div class="date pt-3 pr-2 text-right">
+		<p class="dateActuelle"></p>
+		<hr>
+	</div>

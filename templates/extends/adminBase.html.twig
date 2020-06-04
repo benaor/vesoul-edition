@@ -1,7 +1,21 @@
 {% extends "/base.html.twig" %}
 
+{% block stylesheet %}
+	<link rel="stylesheet" href="/css/admin.css">
+{% endblock %}
+
+
 {% block body %}
 
+	<div class="d-flex p-0 m-0 w-100 100vh">
 
-    
-{% endblock %}
+		{% include "dashboard-admin/admin-navbar.html.twig" %}
+
+		{% block body %}{% endblock %}
+	</main>
+
+	{% block javascripts %}
+        <script src="admin.js"></script>
+	{% endblock %}
+
+</div>{% endblock %}
