@@ -1,0 +1,904 @@
+/*# sourceMappingURL=bootstrap.min.css.map */
+
+/* Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track, .slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slick-track:before, .slick-track:after {
+    display: table;
+    content: '';
+}
+
+.slick-track:after {
+    clear: both;
+}
+
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+    float: right;
+}
+
+.slick-slide img {
+    display: block;
+}
+
+.slick-slide.slick-loading img {
+    display: none;
+}
+
+.slick-slide.dragging img {
+    pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+@charset 'UTF-8';
+/* Slider */
+
+.slick-loading .slick-list {
+    background: #fff url(/build/images/ajax-loader.c5cd7f53.gif) center center no-repeat;
+}
+
+/* Icons */
+
+@font-face {
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
+    src: url(/build/fonts/slick.ced611da.eot);
+    src: url(/build/fonts/slick.ced611da.eot?#iefix) format('embedded-opentype'), url(/build/fonts/slick.b7c9e1e4.woff) format('woff'), url(/build/fonts/slick.d41f55a7.ttf) format('truetype'), url(/build/images/slick.f97e3bbf.svg#slick) format('svg');
+}
+
+/* Arrows */
+
+.slick-prev, .slick-next {
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
+    color: transparent;
+    outline: none;
+    background: transparent;
+}
+
+.slick-prev:hover:before, .slick-prev:focus:before, .slick-next:hover:before, .slick-next:focus:before {
+    opacity: 1;
+}
+
+.slick-prev.slick-disabled:before, .slick-next.slick-disabled:before {
+    opacity: .25;
+}
+
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+    opacity: .75;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+    left: -25px;
+}
+
+[dir='rtl'] .slick-prev {
+    right: -25px;
+    left: auto;
+}
+
+.slick-prev:before {
+    content: '←';
+}
+
+[dir='rtl'] .slick-prev:before {
+    content: '→';
+}
+
+.slick-next {
+    right: -25px;
+}
+
+[dir='rtl'] .slick-next {
+    right: auto;
+    left: -25px;
+}
+
+.slick-next:before {
+    content: '→';
+}
+
+[dir='rtl'] .slick-next:before {
+    content: '←';
+}
+
+/* Dots */
+
+.slick-dotted.slick-slider {
+    margin-bottom: 30px;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -25px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+
+.slick-dots li button:hover, .slick-dots li button:focus {
+    outline: none;
+}
+
+.slick-dots li button:hover:before, .slick-dots li button:focus:before {
+    opacity: 1;
+}
+
+.slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•';
+    text-align: center;
+    opacity: .25;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: black;
+}
+
+.adminLogin {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    background-color: #151515;
+}
+
+.adminLogin .form-signin {
+    background-color: #313131;
+    border-radius: 2px;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .adminLogin .form-signin {
+        width: 70%;
+        height: 70%;
+        top: 15%;
+        left: 15%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .adminLogin .form-signin {
+        width: 70%;
+        height: 70%;
+        top: 15%;
+        left: 15%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .adminLogin .form-signin {
+        width: 75%;
+        height: 75%;
+        top: 12.5%;
+        left: 12.5%;
+    }
+}
+
+.adminLogin .form-signin h1 {
+    color: white;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .adminLogin .form-signin h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .adminLogin .form-signin h1 {
+        font-size: 2rem;
+    }
+}
+
+.adminLogin .form-signin div .btn {
+    color: white;
+}
+
+.adminLogin .form-signin a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.adminLogin .form-signin a i {
+    transition: all 0.3s;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.adminLogin .form-signin a:hover {
+    color: #a0a0a0;
+}
+
+.adminLogin .form-signin a:hover i {
+    color: #a0a0a0;
+}
+
+.hamburger {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    z-index: 1;
+    transition: 0.3s;
+    padding: 0px 10px;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .hamburger {
+        top: 5%;
+        left: 5%;
+    }
+}
+
+@media (max-width: 575px) {
+    .hamburger {
+        top: 3%;
+        left: 4%;
+    }
+}
+
+.hamburger:hover div {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+@media (max-width: 575px) {
+    .hamburger {
+        width: 32px;
+        height: 3px;
+        margin: 4px 0px;
+    }
+}
+
+.hamburger .btn-menu {
+    width: 40px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.78);
+    border-radius: 5px;
+    margin: 5px 0px;
+    transition: .2s ease-out;
+    box-shadow: 0px 5px 16px #00000087;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .hamburger .btn-menu {
+        width: 32px;
+        height: 3px;
+        margin: 4px 0px;
+    }
+}
+
+@media (max-width: 575px) {
+    .hamburger .btn-menu {
+        width: 32px;
+        height: 3px;
+        margin: 4px 0px;
+    }
+}
+
+.navigation {
+    transition: all 0.5s ease;
+    position: fixed;
+    z-index: 3;
+    min-height: 100vh;
+    width: 15%;
+    background-color: #383838;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navigation {
+        width: 30%;
+        position: relative;
+        left: -30%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .navigation {
+        width: 40%;
+        position: relative;
+        left: -40%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .navigation {
+        width: 100%;
+        position: relative;
+        left: -100%;
+    }
+}
+
+.navigation nav .closeBtn {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.navigation nav .button-active {
+    color: white;
+}
+
+.navigation nav hr {
+    width: 75%;
+    border-color: #666666;
+}
+
+.navigation nav a {
+    color: #999999;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.navigation nav a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.navigation nav a h1 {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: white;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navigation nav a h1 {
+        font-size: 1.3rem;
+    }
+}
+
+.navigation .deconnexion {
+    font-weight: bold;
+    color: #999999;
+    transition: all 0.3s;
+}
+
+.navigation .deconnexion:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.displayMenu {
+    position: absolute;
+    left: 0;
+}
+
+main {
+    position: absolute;
+    right: 0;
+    width: 85%;
+    min-height: 100vh;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    main {
+        width: 100%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    main {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    main {
+        width: 100%;
+    }
+}
+
+main .date {
+    right: 5%;
+    width: 90%;
+}
+
+main .carres {
+    width: inherit;
+    height: 150px;
+}
+
+main .carres .carre {
+    width: 22%;
+    height: 80%;
+    border: #999999 solid 1px;
+    border-radius: 0.1rem;
+}
+
+main .carres .carre p {
+    color: #838383;
+    font-weight: bold;
+}
+
+main .carres .carre .chiffre {
+    color: black;
+    font-size: 2rem;
+}
+
+main .titre {
+    background-color: #999999;
+    width: 85%;
+    color: white;
+    font-weight: bold;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    main .titre {
+        width: 95%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    main .titre {
+        width: 95%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    main .titre {
+        width: 95%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    main .titre {
+        width: 95%;
+    }
+}
+
+main .titre button {
+    font-weight: inherit;
+    background-color: #84B103;
+    color: inherit;
+    border: none;
+    border-radius: 0.25rem;
+    height: fit-content;
+    transition: all 0.3s ease;
+}
+
+main .titre button i {
+    font-size: 0.8rem;
+}
+
+main .titre button:hover {
+    cursor: pointer;
+    background-color: #86a828;
+}
+
+main .listBook, main .listCommande, main .info-boutique, main .mentions {
+    width: 85%;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    main .listBook, main .listCommande, main .info-boutique, main .mentions {
+        width: 95%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    main .listBook, main .listCommande, main .info-boutique, main .mentions {
+        width: 95%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    main .listBook, main .listCommande, main .info-boutique, main .mentions {
+        width: 95%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    main .listBook, main .listCommande, main .info-boutique, main .mentions {
+        width: 95%;
+    }
+}
+
+main .listBook .nom-colonne, main .listCommande .nom-colonne, main .info-boutique .nom-colonne, main .mentions .nom-colonne {
+    border: #999999 solid 1px;
+    border-top: none;
+}
+
+main .listBook .nom-colonne p, main .listCommande .nom-colonne p, main .info-boutique .nom-colonne p, main .mentions .nom-colonne p {
+    color: #999999;
+}
+
+main .listBook .mention, main .listCommande .mention, main .info-boutique .mention, main .mentions .mention {
+    border: #999999 solid 1px;
+    width: 95%;
+    min-height: 30vh;
+}
+
+main .listBook .save-mentions, main .listCommande .save-mentions, main .info-boutique .save-mentions, main .mentions .save-mentions {
+    width: 95%;
+}
+
+main .listBook .save-mentions button, main .listCommande .save-mentions button, main .info-boutique .save-mentions button, main .mentions .save-mentions button {
+    background-color: #65b2ff;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 9rem;
+    border: none;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+main .listBook .save-mentions button:hover, main .listCommande .save-mentions button:hover, main .info-boutique .save-mentions button:hover, main .mentions .save-mentions button:hover {
+    cursor: pointer;
+    background-color: #58a0e7;
+}
+
+main .listBook .form-input input, main .listCommande .form-input input, main .info-boutique .form-input input, main .mentions .form-input input {
+    height: 2.5rem;
+}
+
+main .listBook .parent-save-info .save-info, main .listCommande .parent-save-info .save-info, main .info-boutique .parent-save-info .save-info, main .mentions .parent-save-info .save-info {
+    background-color: #65b2ff;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 2.5rem;
+    width: 9rem;
+    border: none;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+main .listBook .parent-save-info .save-info:hover, main .listCommande .parent-save-info .save-info:hover, main .info-boutique .parent-save-info .save-info:hover, main .mentions .parent-save-info .save-info:hover {
+    cursor: pointer;
+    background-color: #58a0e7;
+}
+
+main .listBook .livres .livre, main .listBook .livres .commande, main .listBook .commandes .livre, main .listBook .commandes .commande, main .listCommande .livres .livre, main .listCommande .livres .commande, main .listCommande .commandes .livre, main .listCommande .commandes .commande, main .info-boutique .livres .livre, main .info-boutique .livres .commande, main .info-boutique .commandes .livre, main .info-boutique .commandes .commande, main .mentions .livres .livre, main .mentions .livres .commande, main .mentions .commandes .livre, main .mentions .commandes .commande {
+    border: #999999 solid 1px;
+    border-top: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .listBook .livres .livre:nth-child(2n+1), main .listBook .livres .commande:nth-child(2n+1), main .listBook .commandes .livre:nth-child(2n+1), main .listBook .commandes .commande:nth-child(2n+1), main .listCommande .livres .livre:nth-child(2n+1), main .listCommande .livres .commande:nth-child(2n+1), main .listCommande .commandes .livre:nth-child(2n+1), main .listCommande .commandes .commande:nth-child(2n+1), main .info-boutique .livres .livre:nth-child(2n+1), main .info-boutique .livres .commande:nth-child(2n+1), main .info-boutique .commandes .livre:nth-child(2n+1), main .info-boutique .commandes .commande:nth-child(2n+1), main .mentions .livres .livre:nth-child(2n+1), main .mentions .livres .commande:nth-child(2n+1), main .mentions .commandes .livre:nth-child(2n+1), main .mentions .commandes .commande:nth-child(2n+1) {
+    background-color: #dfdfdf;
+}
+
+main .listBook .livres .livre p, main .listBook .livres .commande p, main .listBook .commandes .livre p, main .listBook .commandes .commande p, main .listCommande .livres .livre p, main .listCommande .livres .commande p, main .listCommande .commandes .livre p, main .listCommande .commandes .commande p, main .info-boutique .livres .livre p, main .info-boutique .livres .commande p, main .info-boutique .commandes .livre p, main .info-boutique .commandes .commande p, main .mentions .livres .livre p, main .mentions .livres .commande p, main .mentions .commandes .livre p, main .mentions .commandes .commande p {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .listBook .livres .livre div .pdf, main .listBook .livres .commande div .pdf, main .listBook .commandes .livre div .pdf, main .listBook .commandes .commande div .pdf, main .listCommande .livres .livre div .pdf, main .listCommande .livres .commande div .pdf, main .listCommande .commandes .livre div .pdf, main .listCommande .commandes .commande div .pdf, main .info-boutique .livres .livre div .pdf, main .info-boutique .livres .commande div .pdf, main .info-boutique .commandes .livre div .pdf, main .info-boutique .commandes .commande div .pdf, main .mentions .livres .livre div .pdf, main .mentions .livres .commande div .pdf, main .mentions .commandes .livre div .pdf, main .mentions .commandes .commande div .pdf {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 5.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+    background-color: #65b2ff;
+}
+
+main .listBook .livres .livre div .pdf:hover, main .listBook .livres .commande div .pdf:hover, main .listBook .commandes .livre div .pdf:hover, main .listBook .commandes .commande div .pdf:hover, main .listCommande .livres .livre div .pdf:hover, main .listCommande .livres .commande div .pdf:hover, main .listCommande .commandes .livre div .pdf:hover, main .listCommande .commandes .commande div .pdf:hover, main .info-boutique .livres .livre div .pdf:hover, main .info-boutique .livres .commande div .pdf:hover, main .info-boutique .commandes .livre div .pdf:hover, main .info-boutique .commandes .commande div .pdf:hover, main .mentions .livres .livre div .pdf:hover, main .mentions .livres .commande div .pdf:hover, main .mentions .commandes .livre div .pdf:hover, main .mentions .commandes .commande div .pdf:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #58a0e7;
+}
+
+main .listBook .livres .livre .options button, main .listBook .livres .commande .options button, main .listBook .commandes .livre .options button, main .listBook .commandes .commande .options button, main .listCommande .livres .livre .options button, main .listCommande .livres .commande .options button, main .listCommande .commandes .livre .options button, main .listCommande .commandes .commande .options button, main .info-boutique .livres .livre .options button, main .info-boutique .livres .commande .options button, main .info-boutique .commandes .livre .options button, main .info-boutique .commandes .commande .options button, main .mentions .livres .livre .options button, main .mentions .livres .commande .options button, main .mentions .commandes .livre .options button, main .mentions .commandes .commande .options button {
+    color: white;
+    font-size: 1rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+main .listBook .livres .livre .options .details, main .listBook .livres .commande .options .details, main .listBook .commandes .livre .options .details, main .listBook .commandes .commande .options .details, main .listCommande .livres .livre .options .details, main .listCommande .livres .commande .options .details, main .listCommande .commandes .livre .options .details, main .listCommande .commandes .commande .options .details, main .info-boutique .livres .livre .options .details, main .info-boutique .livres .commande .options .details, main .info-boutique .commandes .livre .options .details, main .info-boutique .commandes .commande .options .details, main .mentions .livres .livre .options .details, main .mentions .livres .commande .options .details, main .mentions .commandes .livre .options .details, main .mentions .commandes .commande .options .details {
+    background-color: #65b2ff;
+}
+
+main .listBook .livres .livre .options .details:hover, main .listBook .livres .commande .options .details:hover, main .listBook .commandes .livre .options .details:hover, main .listBook .commandes .commande .options .details:hover, main .listCommande .livres .livre .options .details:hover, main .listCommande .livres .commande .options .details:hover, main .listCommande .commandes .livre .options .details:hover, main .listCommande .commandes .commande .options .details:hover, main .info-boutique .livres .livre .options .details:hover, main .info-boutique .livres .commande .options .details:hover, main .info-boutique .commandes .livre .options .details:hover, main .info-boutique .commandes .commande .options .details:hover, main .mentions .livres .livre .options .details:hover, main .mentions .livres .commande .options .details:hover, main .mentions .commandes .livre .options .details:hover, main .mentions .commandes .commande .options .details:hover {
+    cursor: pointer;
+    background-color: #58a0e7;
+}
+
+main .listBook .livres .livre .options .modifier, main .listBook .livres .commande .options .modifier, main .listBook .commandes .livre .options .modifier, main .listBook .commandes .commande .options .modifier, main .listCommande .livres .livre .options .modifier, main .listCommande .livres .commande .options .modifier, main .listCommande .commandes .livre .options .modifier, main .listCommande .commandes .commande .options .modifier, main .info-boutique .livres .livre .options .modifier, main .info-boutique .livres .commande .options .modifier, main .info-boutique .commandes .livre .options .modifier, main .info-boutique .commandes .commande .options .modifier, main .mentions .livres .livre .options .modifier, main .mentions .livres .commande .options .modifier, main .mentions .commandes .livre .options .modifier, main .mentions .commandes .commande .options .modifier {
+    background-color: #1976d2;
+}
+
+main .listBook .livres .livre .options .modifier:hover, main .listBook .livres .commande .options .modifier:hover, main .listBook .commandes .livre .options .modifier:hover, main .listBook .commandes .commande .options .modifier:hover, main .listCommande .livres .livre .options .modifier:hover, main .listCommande .livres .commande .options .modifier:hover, main .listCommande .commandes .livre .options .modifier:hover, main .listCommande .commandes .commande .options .modifier:hover, main .info-boutique .livres .livre .options .modifier:hover, main .info-boutique .livres .commande .options .modifier:hover, main .info-boutique .commandes .livre .options .modifier:hover, main .info-boutique .commandes .commande .options .modifier:hover, main .mentions .livres .livre .options .modifier:hover, main .mentions .livres .commande .options .modifier:hover, main .mentions .commandes .livre .options .modifier:hover, main .mentions .commandes .commande .options .modifier:hover {
+    cursor: pointer;
+    background-color: #165ca3;
+}
+
+main .listBook .livres .livre .options .effacer, main .listBook .livres .commande .options .effacer, main .listBook .commandes .livre .options .effacer, main .listBook .commandes .commande .options .effacer, main .listCommande .livres .livre .options .effacer, main .listCommande .livres .commande .options .effacer, main .listCommande .commandes .livre .options .effacer, main .listCommande .commandes .commande .options .effacer, main .info-boutique .livres .livre .options .effacer, main .info-boutique .livres .commande .options .effacer, main .info-boutique .commandes .livre .options .effacer, main .info-boutique .commandes .commande .options .effacer, main .mentions .livres .livre .options .effacer, main .mentions .livres .commande .options .effacer, main .mentions .commandes .livre .options .effacer, main .mentions .commandes .commande .options .effacer {
+    background-color: #D93A30;
+}
+
+main .listBook .livres .livre .options .effacer:hover, main .listBook .livres .commande .options .effacer:hover, main .listBook .commandes .livre .options .effacer:hover, main .listBook .commandes .commande .options .effacer:hover, main .listCommande .livres .livre .options .effacer:hover, main .listCommande .livres .commande .options .effacer:hover, main .listCommande .commandes .livre .options .effacer:hover, main .listCommande .commandes .commande .options .effacer:hover, main .info-boutique .livres .livre .options .effacer:hover, main .info-boutique .livres .commande .options .effacer:hover, main .info-boutique .commandes .livre .options .effacer:hover, main .info-boutique .commandes .commande .options .effacer:hover, main .mentions .livres .livre .options .effacer:hover, main .mentions .livres .commande .options .effacer:hover, main .mentions .commandes .livre .options .effacer:hover, main .mentions .commandes .commande .options .effacer:hover {
+    cursor: pointer;
+    background-color: #B03229;
+}
+
+main #lightboxDetails .modal-dialog {
+    max-width: 50%;
+}
+
+main #lightboxDetails .modal-dialog .modal-content .modal-body div .slider-for {
+    width: 350px;
+    height: 350px;
+}
+
+main #lightboxDetails .modal-dialog .modal-content .modal-body div .slider-for .slick-list {
+    width: 350px;
+    height: 350px;
+}
+
+main #lightboxDetails .modal-dialog .modal-content .modal-body div .slider-for .slick-list .slik-track {
+    width: 350px;
+    height: 350px;
+}
+
+main #lightboxDetails .modal-dialog .modal-content .modal-body div .slider-for .slick-list .slik-track div {
+    width: 350px;
+    height: 350px;
+}
+
+main #lightboxDetails .modal-dialog .modal-content .modal-body div .slider-for .slick-list .slik-track div img {
+    width: 350px;
+    height: 350px;
+}
+
+main #lightboxDetails .modal-dialog .modal-content .modal-body div .slider-nav {
+    width: 360px;
+}
+
+main #lightboxDetails .modal-dialog .modal-content .modal-body div .slider-nav .elem img {
+    width: 120px;
+    height: 120px;
+}
+
+main #lightboxEdit .modal-dialog .modal-content .modal-body .images {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+main #lightboxEdit .modal-dialog .modal-content .modal-body .images fieldset {
+    width: fit-content;
+    height: fit-content;
+}
+
+main #lightboxEdit .modal-dialog .modal-content .modal-body .images fieldset .addImg {
+    width: 100px;
+    height: 170px;
+    border: #65b2ff solid 3px;
+    color: #65b2ff;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+main #lightboxEdit .modal-dialog .modal-content .modal-body .images fieldset .addImg:hover {
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+main #lightboxEdit .modal-dialog .modal-content .modal-body .images fieldset input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+main #lightboxEdit .modal-dialog .modal-content .modal-footer .save {
+    background-color: #1976d2;
+    border-color: #1976d2;
+}
+
+main #lightboxEdit .modal-dialog .modal-content .modal-footer .save:hover {
+    cursor: pointer;
+    background-color: #165ca3;
+}
+
+#lightboxAdd .modal-dialog .modal-content .modal-body .images {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#lightboxAdd .modal-dialog .modal-content .modal-body .images fieldset {
+    width: fit-content;
+    height: fit-content;
+}
+
+#lightboxAdd .modal-dialog .modal-content .modal-body .images fieldset .addImg {
+    width: 75px;
+    height: 125px;
+    border: #65b2ff solid 3px;
+    color: #65b2ff;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+#lightboxAdd .modal-dialog .modal-content .modal-body .images fieldset .addImg:hover {
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+#lightboxAdd .modal-dialog .modal-content .modal-body .images fieldset input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#lightboxDelete .modal-dialog .modal-content .modal-body div .supprimer {
+    background-color: #D93A30;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+#lightboxDelete .modal-dialog .modal-content .modal-body div .supprimer:hover {
+    cursor: pointer;
+    background-color: #B03229;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+}

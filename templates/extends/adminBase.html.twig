@@ -9,13 +9,19 @@
 
 	<div class="d-flex p-0 m-0 w-100 100vh">
 
-		{% include "dashboard-admin/admin-navbar.html.twig" %}
+		{% include "/includes/adminNavbar.html.twig" %}
 
-		{% block body %}{% endblock %}
-	</main>
+		<main class="d-flex flex-column align-items-center">
+			<div class="date pt-3 pr-2 text-right">
+				<p class="dateActuelle"></p>
+				<hr>
+			</div>
+			{% block content %}{% endblock %}
+		</main>
 
-	{% block javascripts %}
-        <script src="admin.js"></script>
-	{% endblock %}
+	</div>
+{% endblock %}
 
-</div>{% endblock %}
+{% block javascript %}
+	<script src="/js/admin.js"></script>
+{% endblock %}
