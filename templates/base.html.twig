@@ -9,8 +9,7 @@
 		<meta name="application-name" content="Edition Vesoul">
 		<meta name="author" content="GIRARD Benjamin">
 		<meta name="description" content="Site eCommerce de vente de livres par l'association Vesoul Edition">
-		<meta
-		name="keywords" content="Edition, Vesoul, livre, librairie, histoire">
+		<meta name="keywords" content="Edition, Vesoul, livre, librairie, histoire">
 
 		{# Font Awesome #}
 		<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -22,23 +21,15 @@
 		<link rel="stylesheet" href="/css/style.css">
 
 		<title>
-			{% block title %}Vesoul-Edition{% endblock %}
+			{% block title %}
+				Vesoul-Edition
+			{% endblock %}
 		</title>
 	</head>
 
 	<body>
-		<div class="wrapper m-0 p-0 container-fluid">
 
-			{% include "includes/navbar.html.twig" %}
-
-			<main class="container">
-				{% block content %}{% endblock %}
-			</main>
-
-			{% include "includes/footer.html.twig" %}
-
-		</div>
-
+		{% block body %}{% endblock %}
 
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/bootstrap.bundle.min.js"></script>
@@ -47,26 +38,26 @@
 		<script src="/js/script.js"></script>
 
 		{# {% if minyear is defined %}
-			<script>
-				$("#slider-range").slider({range: true, min: {{ minyear }}, max: {{ maxyear }}, values: [{{ minyear }}, {{maxyear }}],slide: function (event, ui) {$("#amount").val(ui.values[0] + " - " + ui.values[1]);}});
-
-				$("#amount").val($("#slider-range").slider("values", 0) + " - " + $("#slider-range").slider("values", 1));
-
-				function resetSlider() {
-
-					$("#slider-range").slider("values", [
-					$("#slider-range").slider('option', 'min'),
-					$("#slider-range").slider('option', 'max')
-					]);
-					$("#amount").val($("#slider-range").slider("values", 0) + " - " + $("#slider-range").slider("values", 1));
-
-					return [
-					$("#slider-range").slider('option', 'min'),
-					$("#slider-range").slider('option', 'max')
-					];
-				}
-			</script>
-		{% endif %} #}
+					<script>
+						$("#slider-range").slider({range: true, min: {{ minyear }}, max: {{ maxyear }}, values: [{{ minyear }}, {{maxyear }}],slide: function (event, ui) {$("#amount").val(ui.values[0] + " - " + ui.values[1]);}});
+		
+						$("#amount").val($("#slider-range").slider("values", 0) + " - " + $("#slider-range").slider("values", 1));
+		
+						function resetSlider() {
+		
+							$("#slider-range").slider("values", [
+							$("#slider-range").slider('option', 'min'),
+							$("#slider-range").slider('option', 'max')
+							]);
+							$("#amount").val($("#slider-range").slider("values", 0) + " - " + $("#slider-range").slider("values", 1));
+		
+							return [
+							$("#slider-range").slider('option', 'min'),
+							$("#slider-range").slider('option', 'max')
+							];
+						}
+					</script>
+				{% endif %} #}
 
 	</body>
 </html>

@@ -1,0 +1,17 @@
+{% extends "/base.html.twig" %}
+
+{% block body %}
+
+		<div class="wrapper m-0 p-0 container-fluid">
+
+			{% include "/includes/navbar.html.twig" %}
+
+			<main class="container">
+				{% block content %}{% endblock %}
+			</main>
+
+			{% include "/includes/footer.html.twig" %}
+
+		</div>
+    
+{% endblock %}
