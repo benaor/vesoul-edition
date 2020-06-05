@@ -2,13 +2,17 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\BookRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+/**
+ * @Route("/admin")
+ */
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="dashboard_admin")
+     * @Route("/", name="dashboard_admin")
      */
     public function adminDashboard()
     {
@@ -16,4 +20,17 @@ class AdminController extends AbstractController
             'controller_name' => 'AdminController',
         ]);
     }
+
+    /**
+     * @Route("/books", name="admin_crud_books")
+     */
+    public function books(BookRepository $bookRepository)
+    {
+        return $this->render('admin/books.html.twig', [
+            'page_title' => 'Gestion des Livres',
+            'books' => $bookRepository->findAll()
+        ]);
+    }
+
+    
 }

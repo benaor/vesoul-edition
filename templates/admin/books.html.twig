@@ -1,0 +1,83 @@
+{% extends "/extends/adminBase.html.twig" %}
+
+{% block title %}
+	{{ page_title }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="titre d-flex justify-content-between align-items-center">
+		<p class="p-3 m-0">Gestion des livres</p>
+		<input type="text" placeholder="Rechercher un titre">
+		<a href="
+        {# {{ path('admin_add_book') }} #}
+        " type="button" class="btn btn-success mx-2" title="Ajouter" 
+        {# data-toggle="modal" data-target="#lightboxAdd" #}>
+			<i class="p-1 fas fa-plus"></i>
+			Ajouter un livre</a>
+
+	</div>
+
+	<table class="listBook">
+		<thead class="nom-colonne">
+			<tr class="d-flex py-3">
+				<th class="col-2">En stock</th>
+				<th class="col-3">Titre</th>
+				<th class="col-3">Code ISBN</th>
+				<th class="col-2">Prix</th>
+				<th class="ml-5 col-2">Options</th>
+			</tr>
+		</thead>
+		<tbody class="livres">
+			{% for book in books %}
+
+				<tr class="livre py-2">
+					<td class="col-2">{{ book.stock }}</td>
+					<td class="col-3">{{ book.id }}
+						-
+						{{ book.title }}</td>
+					<td class="col-3">{{ book.isbn }}</td>
+					<td class="col-2">{{ book.price }}
+						€</td>
+
+					{# the action's button #}
+					<td
+						class="options col-2">
+
+						{# bouton voir les détails #}
+						{# <a href="#" type="button" class="btn btn-success mx-1" data-toggle="modal" data-target="#lightboxDetails">
+							<i title="Voir les détails" class="fas fa-eye text-light"></i>
+						</a> #}
+
+						{# bouton modifier les détails #}
+						{# <a href"#" type="button" class="btn btn-primary mx-1" data-toggle="modal" data-target="#lightboxEdit">
+							<i title="Modifier" class="fas fa-pen text-light"></i>
+						</a> #}
+
+						{# supprimer le livre #}
+						{# <a href="{{ path('admin_delete_book', {'id' : book.id }) }}" type="button" class="btn btn-danger mx-1" #}
+                        {# data-toggle="modal" data-target="#lightboxDelete" #}
+							{#> <i title="Effacer" class="fas fa-trash text-light"></i> #}
+						</a>
+
+
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</section>
+</table>
+
+	{# lors du clic sur "ajouter un livre" on ouvre la modal #}
+	{# {% include "dashboard-admin/book-crud/add-book.html.twig" %} #}
+
+	{# lors du clic sur "see details" on ouvre la modal #}
+	{# {% include "dashboard-admin/book-crud/details-book.html.twig" %} #}
+
+	{# lors du clic sur "edit" on ouvre la modal #}
+	{# {% include "dashboard-admin/book-crud/edit-book.html.twig" %} #}
+
+    {# lors du clic sur "delete" on ouvre la modal #}
+	{# {% include "dashboard-admin/book-crud/delete-book.html.twig" %} #}
+
+{% endblock %}
