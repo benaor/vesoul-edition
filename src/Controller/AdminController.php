@@ -32,5 +32,11 @@ class AdminController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/books/new", name="admin_new_book")
+     */
+    public function newBook(){
+
+    }
     
 }
