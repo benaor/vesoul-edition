@@ -11,14 +11,6 @@
 	</h1>
 
 	{# ICI ON AJOUTERA UN FORM #}
-    <form action="" method="post" >
-        <input type="text" name="title">
-        <input type="number" name="isbn">
-        <textarea name="description"></textarea>
-        <input type="number" name="price">
-        <input type="number" name="stock">
-        <input type="number" name="year">
-        <input type="text" name="image">
-        <button type="submit">Enregistrer</button>
-    </form>
+    {{ form(formNewBook) }}
+    
 {% endblock %}
