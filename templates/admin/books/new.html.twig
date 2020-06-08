@@ -10,37 +10,47 @@
 		{{ page_title }}
 	</h1>
 
-		{{ form_start(formNewBook) }}  
+	{{ form_start(formNewBook) }}
 
-			{{ form_label(formNewBook.title) }}
-			{{ form_widget(formNewBook.title) }}
+	{{ form_label(formNewBook.title) }}
+	{{ form_widget(formNewBook.title) }}
 
-			{{ form_label(formNewBook.isbn) }}
-			{{ form_widget(formNewBook.isbn) }}
+	{{ form_label(formNewBook.isbn) }}
+	{{ form_widget(formNewBook.isbn) }}
 
-			{{ form_label(formNewBook.description) }}
-			{{ form_widget(formNewBook.description) }}
+	{{ form_label(formNewBook.description) }}
+	{{ form_widget(formNewBook.description) }}
 
-			{{ form_label(formNewBook.price) }}
-			{{ form_widget(formNewBook.price) }}
+	{{ form_label(formNewBook.price) }}
+	{{ form_widget(formNewBook.price) }}
 
-			{{ form_label(formNewBook.stock) }}
-			{{ form_widget(formNewBook.stock) }}
+	{{ form_label(formNewBook.stock) }}
+	{{ form_widget(formNewBook.stock) }}
 
-			{{ form_label(formNewBook.year) }}
-			{{ form_widget(formNewBook.year) }}
+	{{ form_label(formNewBook.year) }}
+	{{ form_widget(formNewBook.year) }}
 
-			{{ form_label(formNewBook.image) }}
-			{{ form_widget(formNewBook.image) }}
+	{{ form_label(formNewBook.image) }}
+	{{ form_widget(formNewBook.image) }}
 
-        	<div class="text-center">
-				{{ form_widget(formNewBook.submit) }}
-				<a type="button" class="btn btn-secondary text-light">Annuler</a>
-			</div>
+	<div class="text-center">
+		<a type="submit" class="btn btn-secondary text-light">
+			{% if editMode %}
+				Modifier le livre
+			{% else %}
+				Ajouter le livre
+			{% endif %}
+		</a>
 
-			{{ form_widget(formNewBook._token) }}
+		<a type="button" class="btn btn-secondary text-light" href="{{ path('admin_crud_books') }}">
+			Annuler
+		</a>
+        
+	</div>
 
-		{{ form_end(formNewBook) }}
+	{{ form_widget(formNewBook._token) }}
+
+	{{ form_end(formNewBook) }}
 
 
 {% endblock %}

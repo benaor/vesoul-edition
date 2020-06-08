@@ -116,12 +116,12 @@ class AdminController extends AbstractController
                     'class' => 'my-1 col-7'
                 ]
             ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'enregistrer',
-                'attr' => [
-                    'class' => 'btn btn-secondary text-light'
-                ]
-            ])
+            // ->add('submit', SubmitType::class, [
+            //     'label' => 'enregistrer',
+            //     'attr' => [
+            //         'class' => 'btn btn-secondary text-light'
+            //     ]
+            // ])
             ->getForm();
 
         $form->handleRequest($request);
@@ -134,7 +134,8 @@ class AdminController extends AbstractController
 
         return $this->render('admin/books/new.html.twig', [
             'page_title' => 'Ajout/modification d\'un livre dans la boutique',
-            'formNewBook' => $form->createView()
+            'formNewBook' => $form->createView(),
+            'editMode' => $book->getId() !== null
         ]);
     }
 }
