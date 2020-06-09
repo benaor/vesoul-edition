@@ -62,4 +62,15 @@ class AdminController extends AbstractController
             'editMode' => $book->getId() !== null
         ]);
     }
+
+    /**
+     * @Route("/books/delete/{id}", name="admin_delete_book")
+     */
+    public function deleteBook(Book $book, Request $request, EntityManagerInterface $manager)
+    {
+        $manager->remove($book);
+        $manager->flush();
+        return $this->redirectToRoute('admin_crud_book');
+    }
+    
 }
