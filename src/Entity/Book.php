@@ -59,9 +59,15 @@ class Book
      */
     private $category;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Avis::class, mappedBy="book", orphanRemoval=true)
+     */
+    private $avis;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
+        $this->avis = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -176,6 +182,37 @@ class Book
         if ($this->category->contains($category)) {
             $this->category->removeElement($category);
             $category->removeBook($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Avis[]
+     */
+    public function getAvis(): Collection
+    {
+        return $this->avis;
+    }
+
+    public function addAvi(Avis $avi): self
+    {
+        if (!$this->avis->contains($avi)) {
+            $this->avis[] = $avi;
+            $avi->setBook($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvi(Avis $avi): self
+    {
+        if ($this->avis->contains($avi)) {
+            $this->avis->removeElement($avi);
+            // set the owning side to null (unless already changed)
+            if ($avi->getBook() === $this) {
+                $avi->setBook(null);
+            }
         }
 
         return $this;
