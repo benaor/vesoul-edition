@@ -66,11 +66,11 @@ class AdminController extends AbstractController
     /**
      * @Route("/books/delete/{id}", name="admin_delete_book")
      */
-    public function deleteBook(Book $book, Request $request, EntityManagerInterface $manager)
+    public function deleteBook(Book $book, EntityManagerInterface $manager)
     {
         $manager->remove($book);
         $manager->flush();
-        return $this->redirectToRoute('admin_crud_book');
+        return $this->redirectToRoute('admin_crud_books');
     }
-    
+
 }
