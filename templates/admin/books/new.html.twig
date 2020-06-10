@@ -21,6 +21,9 @@
 	{{ form_label(formNewBook.description) }}
 	{{ form_widget(formNewBook.description) }}
 
+	{{ form_label(formNewBook.category) }}
+	{{ form_widget(formNewBook.category) }}
+
 	{{ form_label(formNewBook.price) }}
 	{{ form_widget(formNewBook.price) }}
 
@@ -34,13 +37,13 @@
 	{{ form_widget(formNewBook.image) }}
 
 	<div class="text-center">
-		<a type="submit" class="btn btn-secondary text-light">
+		<button type="submit" class="btn btn-secondary text-light">
 			{% if editMode %}
 				Modifier le livre
 			{% else %}
 				Ajouter le livre
 			{% endif %}
-		</a>
+		</button>
 
 		<a type="button" class="btn btn-secondary text-light" href="{{ path('admin_crud_books') }}">
 			Annuler

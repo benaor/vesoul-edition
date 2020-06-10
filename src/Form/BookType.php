@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Book;
+use App\Entity\Category;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -62,6 +64,17 @@ class BookType extends AbstractType
         ])
         ->add('year', NumberType::class, [
             'label' => 'Date de sortie du livre',
+            'label_attr' => [
+                'class' => 'font-weight-bold py-1 m-0 col-4'
+            ],
+            'attr' => [
+                'class' => 'my-1 col-7'
+            ]
+        ])
+        ->add('category', EntityType::class, [
+            'label' => 'catégorie du livre',
+            'class' => Category::class,
+            'choice_label' => 'name',
             'label_attr' => [
                 'class' => 'font-weight-bold py-1 m-0 col-4'
             ],
