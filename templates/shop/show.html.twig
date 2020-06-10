@@ -35,6 +35,12 @@
 					<h2 class="mb-4">{{book.title}}</h2>
 					{# <h3 class="m-0 pt-3 pb-4">{{book.firstname}}
 										{{book.lastname}}</h3> #}
+					<h4>Genre : 
+						{% for category in book.category %}
+							{{ category.name }}
+						{% endfor %}
+					</h4>
+
 					<div class="d-flex align-items-center pb-4">
 						<div id="stock-circle" class="mr-3"></div>
 						<p class="stock m-0">en stock</p>
@@ -75,6 +81,26 @@
 							<i class="fas fa-shopping-cart fa-2x pr-2"></i>
 							Ajouter au panier</button>
 					</form>
+
+					<section class="avis">
+						{% for avis in book.avis %}
+							<div class="un-avis">
+								<div class="row">
+									<div class="col-3">
+										{{ avis.client }} ( 
+											<small>
+												{{ avis.createdAt | date('d/m/Y à H:i') }} 
+											</small> )
+									</div>
+
+									<div class="col">
+										{{ avis.content | raw }}
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</section>
+
 				</div>
 			</div>
 		</div>
