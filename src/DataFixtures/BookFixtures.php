@@ -22,11 +22,11 @@ class BookFixtures extends Fixture
             $manager->persist($category);
 
             //Create 25 faker Books
-            for ($j = 0; $j < 25; $j++) {
+            for ($j = 0; $j < mt_rand(4, 6); $j++) {
 
                 $book = new Book();
 
-                $content = '<p>' . join($faker->paragraph(5), '</p><p>') . '</p>';
+                $content = '<p>' . join($faker->paragraphs(5), '</p><p>') . '</p>';
 
                 $book->setTitle($faker->sentence($nbWords = 3, $variableNbWords = true))
                     ->setIsbn(strval($faker->isbn10))
@@ -38,21 +38,21 @@ class BookFixtures extends Fixture
                     ->addCategory($category);
                 $manager->persist($book);
 
-                for ($k = 0; $k < 3; $k++) {
+                for ($k = 0; $k < mt_rand(4, 10); $k++) {
                     $avis = new Avis();
 
-                    $content = '<p>' . join($faker->paragraph(5), '</p><p>') . '</p>';
+                    $content = '<p>' . join($faker->paragraphs(5), '</p><p>') . '</p>';
 
                     $avis->setClient($faker->name)
                         ->setContent($content)
                         ->setNote($faker->numberBetween($min = 0, $mac = 5))
-                        ->setCreatedAt($faker->dateTimeBetween("-6mouths"))
+                        ->setCreatedAt($faker->dateTime())
                         ->setBook($book);
                     $manager->persist($avis);
                 }
             }
         }
-        
+
         $manager->flush();
     }
 }
