@@ -57,7 +57,7 @@ class Book
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, mappedBy="books")
      */
-    private $category;
+    private $categories;
 
     /**
      * @ORM\OneToMany(targetEntity=Avis::class, mappedBy="book", orphanRemoval=true)
@@ -162,15 +162,15 @@ class Book
     /**
      * @return Collection|Category[]
      */
-    public function getCategory(): Collection
+    public function getCategories(): Collection
     {
-        return $this->category;
+        return $this->categories;
     }
 
     public function addCategory(Category $category): self
     {
-        if (!$this->category->contains($category)) {
-            $this->category[] = $category;
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
             $category->addBook($this);
         }
 
@@ -179,8 +179,8 @@ class Book
 
     public function removeCategory(Category $category): self
     {
-        if ($this->category->contains($category)) {
-            $this->category->removeElement($category);
+        if ($this->categories->contains($category)) {
+            $this->categories->removeElement($category);
             $category->removeBook($this);
         }
 
