@@ -64,16 +64,10 @@ class Book
      */
     private $avis;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Category::class, mappedBy="Categories")
-     */
-    private $categorias;
-
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->avis = new ArrayCollection();
-        $this->categorias = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -219,34 +213,6 @@ class Book
             if ($avi->getBook() === $this) {
                 $avi->setBook(null);
             }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategorias(): Collection
-    {
-        return $this->categorias;
-    }
-
-    public function addCategoria(Category $categoria): self
-    {
-        if (!$this->categorias->contains($categoria)) {
-            $this->categorias[] = $categoria;
-            $categoria->addCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCategoria(Category $categoria): self
-    {
-        if ($this->categorias->contains($categoria)) {
-            $this->categorias->removeElement($categoria);
-            $categoria->removeCategory($this);
         }
 
         return $this;
