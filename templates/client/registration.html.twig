@@ -5,5 +5,30 @@
 {% endblock %}
 
 {% block content %}
-    
+    <h1> Inscrivez-vous pour nous rejoindre !</h1>
+    {{ form_start(formDataClient) }}
+
+        {# Input for firstname #}
+        {{ form_row(formDataClient.firstname, {'label' : 'prenom' ,'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Indiquez votre prénom' }}) }}
+
+        {# input for lastname #}
+        {{ form_row(formDataClient.lastname, {'label' : 'Nom d\'utilisateur' ,'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Indiquez votre nom de famille' }}) }}
+
+        {# input for email #}
+        {{ form_row(formDataClient.email, {'label' : 'E-mail' ,'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Indiquez votre email' }}) }}
+
+        {# input for phone Number #}
+        {{ form_row(formDataClient.phone, {'label' : 'Phone' ,'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Indiquez votre numéro de telephone' }}) }}
+
+        {# input for pseudo #}
+        {{ form_row(formDataClient.username, {'label' : 'Nom d\'utilisateur' ,'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Choisir un nom d\'utilisateur' }}) }}
+
+        {# input for password #}
+        {{ form_row(formDataClient.password, {'label' : 'Mot de passe', 'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Choisir un mot de passe' }}) }}
+
+        {# input for password Confirmation #}
+        {{ form_row(formDataClient.confirm_password, {'label' : 'Confirmation', 'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Confirmation du mot de passe'}}) }}
+
+        <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Je m'inscris !</button>
+    {{ form_end(formDataClient) }}
 {% endblock %}
