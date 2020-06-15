@@ -33,6 +33,11 @@ class Client
     private $password;
 
     /**
+     * 
+     */
+    public $confirm_password;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $firstname;

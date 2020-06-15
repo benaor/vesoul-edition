@@ -15,6 +15,7 @@ class RegistrationType extends AbstractType
             ->add('email')
             ->add('username')
             ->add('password')
+            ->add('confirm_password')
             ->add('firstname')
             ->add('lastname')
             ->add('phone')
