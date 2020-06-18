@@ -57,7 +57,7 @@ class Book
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="books")
      */
-    private $categories;
+    private $categories; //Thank Manu
 
     /**
      * @ORM\OneToMany(targetEntity=Avis::class, mappedBy="book", orphanRemoval=true)
