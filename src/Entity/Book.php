@@ -55,7 +55,7 @@ class Book
     private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Category::class, mappedBy="books")
+     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="books")
      */
     private $categories;
 
@@ -66,7 +66,7 @@ class Book
 
     public function __construct()
     {
-        $this->category = new ArrayCollection();
+        $this->categories = new ArrayCollection();
         $this->avis = new ArrayCollection();
     }
 

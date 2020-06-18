@@ -72,10 +72,12 @@ class BookType extends AbstractType
                     'class' => 'my-1 col-7'
                 ]
             ])
-            ->add('category', EntityType::class, [
+            ->add('categories', EntityType::class, [
                 'label' => 'catégorie du livre',
                 'class' => Category::class,
                 'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
                 'label_attr' => [
                     'class' => 'font-weight-bold py-1 m-0 col-4'
                 ],
