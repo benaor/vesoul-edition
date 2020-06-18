@@ -12,4 +12,6 @@ Create database with "php bin/console doctrine:database:create"
 
 execute migration with "php bin/console doctrine:migrations:migrate"
 
+
+
 fill database's tables "php bin/console doctrine:fixtures:load"
