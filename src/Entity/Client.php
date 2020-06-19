@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ClientRepository;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ClientRepository::class)
@@ -36,11 +37,14 @@ class Client implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="6", minMessage="votre mot de passe doit faire au moins 6 caractères")
+     * @Assert\EqualTo(propertyPath="confirm_password", message="Les deux mots de passe doivent être identiques")
      */
     private $password;
 
     /**
-     * 
+     * @Assert\Length(min="6", minMessage="votre mot de passe doit faire au moins 6 caractères")
+     * @Assert\EqualTo(propertyPath="password", message="Les deux mots de passe doivent être identiques")
      */
     public $confirm_password;
 
@@ -138,12 +142,10 @@ class Client implements UserInterface
 
     public function eraseCredentials()
     {
-        
     }
 
     public function getSalt()
     {
-        
     }
 
     public function getRoles()
