@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/client", name="client")
@@ -18,14 +19,16 @@ class ClientController extends AbstractController
     /**
      * @Route("/registration", name="client_registration")
      */
-    public function registration(Request $request, EntityManagerInterface $manager)
+    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
     {
-        $user = new Client(); //create new user
-        $form = $this->createForm(RegistrationType::class, $user); //Create the view for user registration
+        $client = new Client(); //create new Client
+        $form = $this->createForm(RegistrationType::class, $client); //Create the view for Client registration
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid() ) {
-            $manager->persist($user);
+            $encoded = $encoder->encodePassword($client, $client->getPassword());
+            $client->setPassword($encoded);
+            $manager->persist($client);
             $manager->flush();
         }
 
