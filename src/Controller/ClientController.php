@@ -30,6 +30,7 @@ class ClientController extends AbstractController
             $client->setPassword($encoded);
             $manager->persist($client);
             $manager->flush();
+            $this->redirectToRoute('client_login'); //Redirect after registration
         }
 
         return $this->render('client/registration.html.twig', [
@@ -37,4 +38,14 @@ class ClientController extends AbstractController
             'formDataClient' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/login", name="client_login")
+     */
+    public function clientLogin(){
+        return $this->render("client/login.html.twig", [
+            'page_title' => 'Connexion'
+        ]);
+    }
+
 }
