@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
- * @Route("/client", name="client")
+ * @Route("/client")
  */
 class ClientController extends AbstractController
 {
@@ -44,7 +44,7 @@ class ClientController extends AbstractController
      */
     public function login()
     {
-        return $this->render("client/login.html.twig", [
+        return $this->render('client/login.html.twig', [
             'page_title' => 'Connexion'
         ]);
     }

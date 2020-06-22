@@ -17,11 +17,11 @@ security:
             
         main:
             provider: users_in_memory
-            anonymous: true
+            anonymous: lazy
 
         client:
             provider: users_in_database
-            
+
             form_login: 
                 login_path: client_login
                 check_path: client_login
@@ -41,4 +41,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        # - { path: ^/client/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/client, roles: ROLE_USER }
