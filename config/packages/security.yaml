@@ -15,12 +15,13 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
             
-        main:
-            provider: users_in_memory
-            anonymous: lazy
+        # main:
+        #     provider: users_in_memory
+        #     anonymous: lazy
 
         client:
             provider: users_in_database
+            anonymous: lazy
 
             form_login: 
                 login_path: client_login
@@ -29,7 +30,7 @@ security:
 
             logout:
                 path: client_logout
-                target: client
+                target: client_login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -41,5 +42,5 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/client/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        # - { path: ^/client, roles: ROLE_USER }
+        - { path: ^/client/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/client, roles: ROLE_USER }
