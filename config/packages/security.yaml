@@ -16,9 +16,12 @@ security:
             security: false
             
         main:
-            provider: users_in_database
+            provider: users_in_memory
             anonymous: true
 
+        client:
+            provider: users_in_database
+            
             form_login: 
                 login_path: client_login
                 check_path: client_login
