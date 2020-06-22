@@ -12,4 +12,6 @@ Create database with "php bin/console doctrine:database:create"
 
 execute migration with "php bin/console doctrine:migrations:migrate"
 
+Executes this command for install the fixtures bundles "composer require --dev doctrine/doctrine-fixtures-bundle"
+
 fill database's tables "php bin/console doctrine:fixtures:load"
