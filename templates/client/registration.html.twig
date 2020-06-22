@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <h1> Inscrivez-vous pour nous rejoindre !</h1>
+    <h1>{{ page_title }} !</h1>
     {{ form_start(formDataClient) }}
 
         {# Input for firstname #}
         {{ form_row(formDataClient.firstname, {'label' : 'prenom' ,'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Indiquez votre prénom' }}) }}
 
         {# input for lastname #}
-        {{ form_row(formDataClient.lastname, {'label' : 'Nom d\'utilisateur' ,'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Indiquez votre nom de famille' }}) }}
+        {{ form_row(formDataClient.lastname, {'label' : 'Nom' ,'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Indiquez votre nom de famille' }}) }}
 
         {# input for email #}
         {{ form_row(formDataClient.email, {'label' : 'E-mail' ,'attr' : {'class': 'form-control mb-4', 'placeholder' : 'Indiquez votre email' }}) }}

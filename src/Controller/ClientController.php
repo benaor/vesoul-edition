@@ -55,4 +55,30 @@ class ClientController extends AbstractController
     public function logout()
     {
     }
+
+    /**
+     * @Route("/informations", name="client_informations")
+     */
+    public function informationsClient(Client $client = null, Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
+    {
+        if(!$client){
+            $this->redirectToRoute('client_registration');
+        }
+
+        $form = $this->createForm(RegistrationType::class, $client); //Create the view for Client registration
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $encoded = $encoder->encodePassword($client, $client->getPassword());
+            $client->setPassword($encoded);
+            $manager->persist($client);
+            $manager->flush();
+            $this->redirectToRoute('client_login'); //Redirect after registration
+        }
+
+        return $this->render('client/registration.html.twig', [
+            'page_title' => 'modifier les informations personnelles',
+            'formDataClient' => $form->createView()
+        ]);
+    }
 }
