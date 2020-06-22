@@ -3,15 +3,30 @@ security:
         App\Entity\Client:
             algorithm: bcrypt
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+
     providers:
         users_in_memory: { memory: null }
+        users_in_database:
+            entity:
+                class: App\Entity\Client
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+            
         main:
-            anonymous: lazy
-            provider: users_in_memory
+            provider: users_in_database
+            anonymous: true
+
+            form_login: 
+                login_path: client_login
+                check_path: client_login
+                default_target_path: shop-home
+
+            logout:
+                path: client_logout
+                target: client
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

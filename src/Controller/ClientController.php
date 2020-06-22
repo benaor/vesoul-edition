@@ -25,7 +25,7 @@ class ClientController extends AbstractController
         $form = $this->createForm(RegistrationType::class, $client); //Create the view for Client registration
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid() ) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $encoded = $encoder->encodePassword($client, $client->getPassword());
             $client->setPassword($encoded);
             $manager->persist($client);
@@ -42,10 +42,17 @@ class ClientController extends AbstractController
     /**
      * @Route("/login", name="client_login")
      */
-    public function clientLogin(){
+    public function login()
+    {
         return $this->render("client/login.html.twig", [
             'page_title' => 'Connexion'
         ]);
     }
 
+    /**
+     * @Route("/logout", name="client_logout")
+     */
+    public function logout()
+    {
+    }
 }
