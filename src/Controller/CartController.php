@@ -77,7 +77,7 @@ class CartController extends AbstractController
     }
 
     /**
-     * @Route("/delete", name="cart_delete")
+     * @Route("/{id}/delete", name="cart_delete")
      */
     public function deleteCart($id, SessionInterface $session)
     {
