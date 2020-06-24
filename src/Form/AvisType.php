@@ -15,8 +15,6 @@ class AvisType extends AbstractType
             ->add('client')
             ->add('content')
             ->add('note')
-            ->add('createdAt')
-            ->add('book')
         ;
     }
 

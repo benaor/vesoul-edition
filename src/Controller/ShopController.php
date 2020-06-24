@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Avis;
 use App\Entity\Book;
+use App\Form\AvisType;
 use App\Repository\BookRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -23,10 +27,24 @@ class ShopController extends AbstractController
     /**
      * @route("/book/{id}", name="show_book")
      */
-    public function showBook(Book $book)
+    public function showBook(Book $book, Request $request, EntityManagerInterface $manager)
     {
+        $avis = new Avis();
+        $form = $this->createForm(AvisType::class, $avis);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $avis->setCreatedAt(new \DateTime())
+                ->setBook($book);
+            $manager->persist($avis);
+            $manager->flush();
+            
+            return $this->redirectToRoute('show_book', ['id' => $book->getId() ]);
+        }
+
         return $this->render('shop/show.html.twig', [
-            'book' => $book
+            'book' => $book,
+            'formAvis' => $form->createView()
         ]);
     }
 }
