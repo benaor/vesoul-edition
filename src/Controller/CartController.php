@@ -42,12 +42,22 @@ class CartController extends AbstractController
 
     }
 
-    // /**
-    //  * @Route("/{id}/add", name="cart_add")
-    //  */
-    // public function addToCart()
-    // {
-    // }
+    /**
+     * @Route("/{id}/add", name="cart_add")
+     */
+    public function addToCart($id, SessionInterface $session)
+    {
+        $panier = $session->get('panier', []);
+
+        if (!empty($panier[$id])) {
+            $panier[$id]++;
+        } else {
+            $panier[$id] = 1;
+        }
+
+        $session->set('panier', $panier);
+        return $this->redirectToRoute('cart');
+    }
 
     // /**
     //  * @Route("/{id}/remove", name="cart_remove")
