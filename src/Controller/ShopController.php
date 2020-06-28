@@ -54,16 +54,11 @@ class ShopController extends AbstractController
     }
 
     /**
-     * @Route("/search", name="searchBar")
+     * @Route("/search/{searchValue}", name="searchBar")
      */
-    public function search(Request $request)
+    public function search(Request $request, BookRepository $bookRepository, string $searchValue)
     {
-        if ($request->isXMLHttpRequest()) {
-            $title = $request->query->get('book');
-            $conn = $this->get('database_connection');
-            $query = "SELECT * FROM book WHERE book.title LIKE '%'.$title.'%";
-            $rows = $conn->fetchAll($query);
-            return new JsonResponse(array('data' => json_encode($rows)));
-        }
+        dump($searchValue);
+        exit;
     }
 }

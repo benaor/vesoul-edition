@@ -7,8 +7,7 @@ $(document).ready(function(){
         if(searchBarValue != ""){
             $.ajax({
                 type: 'GET',
-                url: '/search',
-                data: 'book='+searchBarValue,
+                url: '/search/'+searchBarValue,
                 success: function(data){
 
                     //si je trouve un livre qui correspond 
