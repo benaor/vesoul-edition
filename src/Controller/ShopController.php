@@ -11,8 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
+/**
+ * @Route("/")
+ */
 class ShopController extends AbstractController
 {
+
     /**
      * @Route("/", name="shop-home")
      */
@@ -38,13 +43,21 @@ class ShopController extends AbstractController
                 ->setBook($book);
             $manager->persist($avis);
             $manager->flush();
-            
-            return $this->redirectToRoute('show_book', ['id' => $book->getId() ]);
+
+            return $this->redirectToRoute('show_book', ['id' => $book->getId()]);
         }
 
         return $this->render('shop/show.html.twig', [
             'book' => $book,
             'formAvis' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/search", name="searchBar")
+     */
+    public function search(Book $book)
+    {
+        return $this->json('ok');
     }
 }
