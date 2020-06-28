@@ -29,43 +29,14 @@
 	<body>
 
 		{% block body %}{% endblock %}
+		
 
+		<script src="/js/jquery.min.js"></script>
+		{# <script src="/js/jquery-ui.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
 		<script src="/js/bootstrap.bundle.min.js"></script>
-		<script src="/js/jquery.min.js"></script>
-		<script src="/js/jquery-ui.min.js"></script>
-		<script src="/js/shop.js"></script>
-		{% block javascript %}{% endblock %}
-
-
-<script>
-
-
-</script>
-
-
-
-		{# {% if minyear is defined %}
-					<script>
-						$("#slider-range").slider({range: true, min: {{ minyear }}, max: {{ maxyear }}, values: [{{ minyear }}, {{maxyear }}],slide: function (event, ui) {$("#amount").val(ui.values[0] + " - " + ui.values[1]);}});
-		
-						$("#amount").val($("#slider-range").slider("values", 0) + " - " + $("#slider-range").slider("values", 1));
-		
-						function resetSlider() {
-		
-							$("#slider-range").slider("values", [
-							$("#slider-range").slider('option', 'min'),
-							$("#slider-range").slider('option', 'max')
-							]);
-							$("#amount").val($("#slider-range").slider("values", 0) + " - " + $("#slider-range").slider("values", 1));
-		
-							return [
-							$("#slider-range").slider('option', 'min'),
-							$("#slider-range").slider('option', 'max')
-							];
-						}
-					</script>
-				{% endif %} #}
+		<script src="/js/searchBar.js"></script> #}
+		{% block javascripts %}{% endblock %}
 
 	</body>
 </html>

@@ -10,7 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * @Route("/")
@@ -56,8 +56,14 @@ class ShopController extends AbstractController
     /**
      * @Route("/search", name="searchBar")
      */
-    public function search(Book $book)
+    public function search(Request $request)
     {
-        return $this->json('ok');
+        if ($request->isXMLHttpRequest()) {
+            $title = $request->query->get('book');
+            $conn = $this->get('database_connection');
+            $query = "SELECT * FROM book WHERE book.title LIKE '%'.$title.'%";
+            $rows = $conn->fetchAll($query);
+            return new JsonResponse(array('data' => json_encode($rows)));
+        }
     }
 }

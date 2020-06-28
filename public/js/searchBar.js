@@ -2,7 +2,7 @@
 $(document).ready(function(){
     $('#searchBar').keyup(function(){
         var searchBarValue = $(this).val();
-        console.log(searchBarValue);
+        
 
         if(searchBarValue != ""){
             $.ajax({
@@ -13,10 +13,12 @@ $(document).ready(function(){
 
                     //si je trouve un livre qui correspond 
                     if(data != ""){
+                        console.log(data);
                         $('#searchBarResult').append(data);
 
                     //Si aucun livre dans la BDD ne correspond
                     } else {
+                        console.log(data);
                         document.getElementById('searchBarResult').innerHTML = "<p> aucun livre trouvé </p>";
                     }
                 }
