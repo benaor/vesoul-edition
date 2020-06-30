@@ -12,8 +12,14 @@ $(document).ready(function(){
 console.log(response.status)
                     //si je trouve un livre qui correspond 
                     if(response.status == 200){
-                        document.getElementById('searchBarResult').innerHTML =
-                        "<a href='/book/" + data.books[0].id + "'>"+ data.books[0].title +'</a>';
+
+                        for (let i = 0; i < 5; i++) {
+
+                            let searchBook = "<div class='p-3 bg-white'> <a href='/book/" + data.books[i].id + "' class='text-dark'>"+ data.books[i].title +"</a> </div>";
+                            document.getElementById('searchBarResult').insertAdjacentHTML('beforeend', searchBook);
+                            ;
+
+                        }
 
                         console.log(data);
                         
