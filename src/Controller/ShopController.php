@@ -8,9 +8,10 @@ use App\Form\AvisType;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/")
@@ -58,7 +59,30 @@ class ShopController extends AbstractController
      */
     public function search(Request $request, BookRepository $bookRepository, string $searchValue)
     {
-        dump($searchValue);
-        exit;
+        $books = [];
+        
+        if( strlen( $searchValue ) >= 1 ){
+            $books = $bookRepository->findTitle($searchValue);
+        }
+        
+        $response = new Response();
+        if( count($books) > 0 ){
+            
+            // return new JsonResponse(['books' => $book])
+            $response->setContent(json_encode([
+                'books' => $books,
+            ]));
+            $response->setStatusCode(Response::HTTP_OK);
+            $response->headers->set('Content-Type', 'application/json');
+
+        }else{
+            
+            $response->headers->set('Content-Type', 'text/plain');
+            $response->setStatusCode(Response::HTTP_NO_CONTENT);
+
+        }
+
+        return $response;
+
     }
 }
