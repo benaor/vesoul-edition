@@ -25,8 +25,25 @@
 				{% if not app.user %}
 					<a class="m-0 pr-3" href="{{ path('client_login') }}">Connexion</a>
 				{% else %}
-                <a href="{{path('client_infos')}}" class="">Espace Client</a>
-					<a class="m-0 pr-3" href="{{ path('client_logout') }}">Deconnexion<a>
+            
+                <li class="nav-item dropdown" style="list-style: none !important;">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mon espace
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                    <a class="dropdown-item" href="{{path('client_infos')}}" class="">Mon compte</a>
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a class="dropdown-item nav-link" href="{{path('dashboard_admin')}}">Administration</a>
+                    {% endif %}
+
+                    <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ path('client_logout') }}">Deconnexion<a>
+
+                    </div>
+                </li>
 				{% endif %}
 					
 

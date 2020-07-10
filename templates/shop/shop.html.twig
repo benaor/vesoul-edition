@@ -8,10 +8,27 @@
 	<section id="index">
 		<div class="row p-3">
 
-			{% include "includes/filterbar.html.twig" %}
+			{# {% include "includes/filterbar.html.twig" %} #}
 
 			{# Partie Livres ======================================= #}
-			<div class="row">
+			<div class="col-12">
+
+				{# nombre articles trouvé #}
+				<div class="bg-light m-0 p-4">
+					<p class="m-0">
+						<span id="totalPage">
+							{% if books is defined %}
+								{% if books | length > 0 %}
+									{{  books | length }}
+								{% else %}
+									0
+								{% endif %}
+							{% endif %}
+						</span>
+						Livre(s) trouvé(s)
+					</p>
+				</div> 
+
 				<div
 					id="book-collection" class="col-12 m-0 p-0 pl-5 d-flex flex-wrap justify-content-left">
 
@@ -19,7 +36,7 @@
 					{% if books is defined %}
 						{% if books | length > 0 %}
 							{% for book in books %}
-								<div class="m-0 p-2">
+								<div class="col-3 mx-0 my-2 p-2">
 									<div class="book-card">
 										<div class="photo">
 											<img class="book-pic" src="{{book.image}}" alt="image du livre">

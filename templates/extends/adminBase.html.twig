@@ -10,6 +10,7 @@
 
 
 {% block body %}
+{% if is_granted('ROLE_ADMIN') %}
 
 	<div class="d-flex p-0 m-0 w-100 100vh">
 
@@ -24,6 +25,9 @@
 		</main>
 
 	</div>
+{% else %}
+<p> petit malin </p>
+{% endif %}
 {% endblock %}
 
 {% block javascript %}
