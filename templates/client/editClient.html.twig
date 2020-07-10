@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% block content %}
+
+
+{% if app.user.id == client.id %}
+
     <h1>{{ page_title }} !</h1>
     {{ form_start(formDataClient) }}
 
@@ -31,4 +35,10 @@
 
         <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Je modifie !</button>
     {{ form_end(formDataClient) }}
+
+
+{% else %}
+    <p> petit malin </p>
+{% endif %}
+
 {% endblock %}

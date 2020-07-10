@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Client;
 use App\Form\RegistrationType;
+use App\Repository\ClientRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -57,7 +58,19 @@ class ClientController extends AbstractController
     }
 
     /**
-     * @Route("/edit/{id}", name="client_informations")
+     * @Route("/infos", name="client_infos")
+     */
+    public function infoClient(ClientRepository $clientRepository)
+    {
+        $client = $this->getUser();       
+        return $this->render('client/infoClient.html.twig', [
+            'page_title' => 'informations client',
+            'client' => $client
+        ]);
+    }
+
+    /**
+     * @Route("/edit/{id}", name="client_edit")
      */
     public function informationsClient(Client $client = null, Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
     {
@@ -78,8 +91,8 @@ class ClientController extends AbstractController
 
         return $this->render('client/editClient.html.twig', [
             'page_title' => 'modifier les informations personnelles',
-            'formDataClient' => $form->createView()
+            'formDataClient' => $form->createView(),
+            'client' => $client
         ]);
     }
-
 }

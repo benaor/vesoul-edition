@@ -1,0 +1,24 @@
+{% extends '/extends/shopBase.html.twig' %}
+
+{% block title %}
+	{{ page_title }}
+{% endblock %}
+
+{% block content %}
+    
+
+    <h1>{{ page_title }} !</h1>
+
+    <div class="row flex-column align-items-center">
+
+        <p>Email : {{client.email}}</p>
+        <p>Username : {{client.username}}</p>
+        <p>Prénom : {{client.firstname}}</p>
+        <p>Nom : {{client.lastname}}</p>
+        <p>Téléphone : {{client.phone}}</p>
+        
+    </div>
+    <a href="{{ path('client_edit', {'id': client.id })}}"> modifier </a>
+
+
+{% endblock %}
