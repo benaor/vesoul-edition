@@ -8,10 +8,13 @@
 
 		{# ======== Recherche ========#}
 		<form class="form-inline col-6 d-flex justify-content-center form-search">
-			<input class="form-control search-bar text-center m-0" type="search" placeholder="Rechercher votre livre !" aria-label="Search">
+			<input class="form-control search-bar text-center m-0" id="searchBar" type="search" placeholder="Rechercher votre livre !" aria-label="Search">
 			<button class="btn btn-search btn-info m-0" type="button">
 				<i class="fas fa-search"></i>
 			</button>
+            
+			<div class="form-control" id="searchBarResult"></div>
+
 		</form>
 
 		{# ======== Connexion ========#}
@@ -29,7 +32,7 @@
 
 		        {# ======== Panier ========#}
                 <div class="d-flex align-items-center justify-content-center px-3">
-                    <a href="panier" class="d-flex flex-column justify-content-center">
+                    <a href="{{ path('cart') }}" class="d-flex flex-column justify-content-center">
                         <div>
                             <i class="fas fa-shopping-cart"></i>
                             <span id="nb-items" class="badge badge-pill badge-warning">
@@ -82,3 +85,4 @@
         </div>
     </div>
 </header>
+

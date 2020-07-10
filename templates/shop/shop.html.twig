@@ -40,7 +40,7 @@
 														<span>{{book.price}}</span>€</p>
 												</div>
 												<div class="col-8 d-flex justify-content-end">
-													<a href="">
+													<a href="{{ path('cart_add', {'id': book.id }) }}">
 														<button class="btn btn-info">Ajouter<i class="fas fa-shopping-cart"></i>
 														</button>
 													</a>
