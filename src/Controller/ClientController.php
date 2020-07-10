@@ -28,7 +28,8 @@ class ClientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $encoded = $encoder->encodePassword($client, $client->getPassword());
-            $client->setPassword($encoded);
+            $client->setPassword($encoded)
+            ->setRoles('ROLE_USER');
             $manager->persist($client);
             $manager->flush();
             $this->redirectToRoute('client_login'); //Redirect after registration

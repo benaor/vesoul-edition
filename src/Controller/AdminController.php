@@ -7,8 +7,10 @@ use App\Form\BookType;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 /**
  * @Route("/admin")
@@ -51,6 +53,19 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if ($book->getImage() !==null) {
+                $file = $form->get('image')->getData();
+                $fileName = uniqid(). '.' . $file->guessExtension();
+                // dd($file, $fileName);
+                try {
+                    dd($file->move($this->getParameter('images_directory', $file)));
+                } catch (FileException $e) {
+                    return new Response($e->getMessage());
+                }
+                $book->setImage($fileName);
+            }
+
             $manager->persist($book);
             $manager->flush();
             return $this->redirectToRoute('show_book', ['id' => $book->getId()]);
