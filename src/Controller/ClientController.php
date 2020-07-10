@@ -57,12 +57,12 @@ class ClientController extends AbstractController
     }
 
     /**
-     * @Route("/informations", name="client_informations")
+     * @Route("/edit/{id}", name="client_informations")
      */
     public function informationsClient(Client $client = null, Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
     {
-        if(!$client){
-            $this->redirectToRoute('client_registration');
+        if (!$client) {
+            $client = new Client();
         }
 
         $form = $this->createForm(RegistrationType::class, $client); //Create the view for Client registration
@@ -76,9 +76,10 @@ class ClientController extends AbstractController
             $this->redirectToRoute('client_login'); //Redirect after registration
         }
 
-        return $this->render('client/registration.html.twig', [
+        return $this->render('client/editClient.html.twig', [
             'page_title' => 'modifier les informations personnelles',
             'formDataClient' => $form->createView()
         ]);
     }
+
 }
