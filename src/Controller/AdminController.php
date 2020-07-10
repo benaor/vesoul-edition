@@ -57,9 +57,9 @@ class AdminController extends AbstractController
             if ($book->getImage() !==null) {
                 $file = $form->get('image')->getData();
                 $fileName = uniqid(). '.' . $file->guessExtension();
-                // dd($file, $fileName);
+                
                 try {
-                    dd($file->move($this->getParameter('images_directory', $file)));
+                    $file->move($this->getParameter('images_directory'), $fileName);
                 } catch (FileException $e) {
                     return new Response($e->getMessage());
                 }
