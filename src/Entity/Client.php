@@ -17,6 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Client implements UserInterface
 {
+    
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -37,13 +38,13 @@ class Client implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="6", minMessage="votre mot de passe doit faire au moins 6 caractères")
+     * @Assert\Length(min="8", minMessage="votre mot de passe doit faire au moins 8 caractères")
      * @Assert\EqualTo(propertyPath="confirm_password", message="Les deux mots de passe doivent être identiques")
      */
     private $password;
 
     /**
-     * @Assert\Length(min="6", minMessage="votre mot de passe doit faire au moins 6 caractères")
+     * @Assert\Length(min="8", minMessage="votre mot de passe doit faire au moins 8 caractères")
      * @Assert\EqualTo(propertyPath="password", message="Les deux mots de passe doivent être identiques")
      */
     public $confirm_password;

@@ -14,11 +14,11 @@
 
 					{# ---------- Image principale ---------- #}
 					<img
-					id="preview-img" src="{{book.image}}" alt="livre">
+					id="preview-img" src="{{ asset('img/' ~ book.image ) }}" alt="livre">
 
 					{# ---------- Carousel ----------- #}
 					<div id="preview-small-section" class="d-flex align-items-center justify-content-between pt-2">
-						<button>
+						{# <button>
 							<i class="fas fa-chevron-left fa-2x"></i>
 						</button>
 						<img class="preview-small" src="{{book.image}}" alt="livre">
@@ -26,7 +26,7 @@
 						<img class="preview-small" src="{{book.image}}" alt="livre">
 						<button>
 							<i class="fas fa-chevron-right fa-2x"></i>
-						</button>
+						</button> #}
 					</div>
 				</div>
 
