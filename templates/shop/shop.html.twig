@@ -36,8 +36,9 @@
 					{% if books is defined %}
 						{% if books | length > 0 %}
 							{% for book in books %}
-								<div class="col-3 mx-0 my-2 p-2">
-									<div class="book-card">
+
+								<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mx-0 my-2 p-2">
+									<div class="book-card m-auto">
 										<div class="photo">
 											<img class="book-pic" src="{{ asset('img/' ~ book.image ) }}" alt="image du livre">
 											<div class="overlay d-flex justify-content-center  align-items-center">
@@ -67,6 +68,7 @@
 									</div>
 								</div>
 							{% endfor %}
+
 						{% else %}
 							<p class="p-4 mt-2 alert alert-dark">
 								Aucun livre ne correspond à votre recherche.

@@ -1,0 +1,66 @@
+<section class="w-100 position-fixed bg-dark container-fluid" id="menu-burger">
+
+    <div class="d-flex container flex-row py-5 justify-content-between align-items-center">
+
+        <a class="brand" href="{{ path('shop-home') }}">
+            Vesoul Edition<span class="pl-1">.</span>
+        </a>
+
+        <div id="closeBurger">
+            <i class="fas fa-lg fa-times"></i>
+        </div>
+    
+    </div>
+
+    <div>
+        <!-- menu nav -->
+        <ul class="list-unstyled">
+
+           		{% if not app.user %}
+					<li class="m-5"> 
+                        <a href="{{ path('client_login') }}">Connexion</a>
+                    </li>
+
+				{% else %}
+            
+            
+                    <li class="m-5">
+                        <a href="{{path('client_infos')}}" class="">Mon compte</a>
+                    </li>
+
+                    {% if is_granted('ROLE_ADMIN') %}
+
+                        <li class="m-5">
+                            <a href="{{path('dashboard_admin')}}">Administration</a>
+                        </li>
+
+                    {% endif %}
+
+                    <li class="m-5">
+                        <a href="{{ path('client_logout') }}">Deconnexion<a>
+                    <li>
+                    
+            
+				{% endif %}
+					
+
+		        {# ======== Panier ========#}
+                <li class="m-5">
+                    <a href="{{ path('cart') }}" class="d-flex flex-column justify-content-center">
+                        <div>
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="nb-items" class="badge badge-pill badge-warning">
+                                {{ app.session.get('panier') | length}}
+                            </span>
+                        </div>
+                        <p class="m-0">panier</p>
+                    </a>
+                </li>
+        
+
+
+
+        </ul>
+    </div>
+
+</section>
