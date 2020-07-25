@@ -14,37 +14,114 @@
 
 {% if app.user.id == client.id %}
 
-<div class="m-auto bg-light col-4 py-5 px-5 rounded">
-    <h1 class="text-center m-3">{{ page_title }} !</h1>
-    {{ form_start(formDataClient) }}
+    <div class="m-auto bg-light col-4 py-5 px-5 rounded">
+        <h1 class="text-center m-3">{{ page_title }} !</h1>
+        {{ form_start(formDataClient) }}
 
-        {# Input for firstname #}
-        {{ form_row(formDataClient.firstname, {'label' : 'prenom' , 'label_attr' : {'class': 'col-12 text-center mb-0'}  ,'attr' : {'class': 'form-control mb-4 text-center p-2', 'placeholder' : 'Indiquez votre prénom' }}) }}
+            {# Input for firstname #}
+            {{ form_row(formDataClient.firstname, {
+                'label' : 'prenom',
+                'label_attr' : {
+                    'class': 'col-12 text-center mb-0'
+                },
+                'attr' : {
+                    'class': 'form-control mb-4 text-center p-2',
+                    'placeholder' : 'Indiquez votre prénom' 
+                }
+            }) }}
 
-        {# input for lastname #}
-        {{ form_row(formDataClient.lastname, {'label' : 'Nom' , 'label_attr' : {'class': 'col-12 text-center mb-0'} ,'attr' : {'class': 'form-control mb-4 text-center p-2', 'placeholder' : 'Indiquez votre nom de famille' }}) }}
+            {# input for lastname #}
+            {{ form_row(formDataClient.lastname, {
+                'label' : 'Nom',
+                'label_attr' : {
+                    'class': 'col-12 text-center mb-0'
+                },
+                'attr' : {
+                    'class': 'form-control mb-4 text-center p-2',
+                    'placeholder' : 'Indiquez votre nom de famille' 
+                }
+            }) }}
 
-        {# input for email #}
-        {{ form_row(formDataClient.email, {'label' : 'E-mail' , 'label_attr' : {'class': 'col-12 text-center mb-0'}  ,'attr' : {'class': 'form-control mb-4 text-center p-2', 'placeholder' : 'Indiquez votre email' }}) }}
+            {# input for email #}
+            {{ form_row(formDataClient.email, {
+                'label' : 'E-mail' ,
+                'label_attr' : {
+                    'class': 'col-12 text-center mb-0'
+                },
+                'attr' : {
+                    'class': 'form-control mb-4 text-center p-2',
+                    'placeholder' : 'Indiquez votre email'
+                }
+            }) }}
 
-        {# input for phone Number #}
-        {{ form_row(formDataClient.phone, {'label' : 'Phone' , 'label_attr' : {'class': 'col-12 text-center mb-0'} ,'attr' : {'class': 'form-control mb-4 text-center p-2', 'placeholder' : 'Indiquez votre numéro de telephone' }}) }}
+            {# input for phone Number #}
+            {{ form_row(formDataClient.phone, {
+                'label' : 'Phone', 
+                'label_attr' : {
+                    'class': 'col-12 text-center mb-0'
+                },
+                'attr' : {
+                    'class': 'form-control mb-4 text-center p-2',
+                    'placeholder' : 'Indiquez votre numéro de telephone' 
+                }
+            }) }}
 
-        {# input for pseudo #}
-        {{ form_row(formDataClient.username, {'label' : 'Nom d\'utilisateur' , 'label_attr' : {'class': 'col-12 text-center mb-0'} ,'attr' : {'class': 'form-control mb-4 text-center p-2', 'placeholder' : 'Choisir un nom d\'utilisateur' }}) }}
+            {# input for pseudo #}
+            {{ form_row(formDataClient.username, {
+                'label' : 'Nom d\'utilisateur' ,
+                'label_attr' : {
+                    'class': 'col-12 text-center mb-0'
+                },
+            
+                'attr' : {
+                    'class': 'form-control mb-4 text-center p-2',
+                    'placeholder' : 'Choisir un nom d\'utilisateur' 
+                }
+            }) }}
 
-        {# input for password #}
-        {{ form_row(formDataClient.password, {'label' : 'Mot de passe' , 'label_attr' : {'class': 'col-12 text-center mb-0'}, 'attr' : {'class': 'form-control mb-4 text-center p-2', 'placeholder' : 'Choisir un mot de passe' }}) }}
+            {# input for password #}
+            {{ form_row(formDataClient.password, {
+                'label' : 'Mot de passe' ,
+                'label_attr' : {
+                    'class': 'col-12 text-center mb-0'
+                },
+                'attr' : {
+                    'class': 'form-control mb-4 text-center p-2', 
+                    'placeholder' : 'Choisir un mot de passe' 
+                },
+                'errors': 'disable',
+            }) }}
+   
+            <div class="bg-danger text-light rounded opacity-1">
+                {{ form_errors(formDataClient.password )}}
+            </div>
 
-        {# input for password Confirmation #}
-        {{ form_row(formDataClient.confirm_password, {'label' : 'Confirmation' , 'label_attr' : {'class': 'col-12 text-center mb-0'} , 'attr' : {'class': 'form-control mb-4 text-center p-2', 'placeholder' : 'Confirmation du mot de passe'}}) }}
+            {# input for password Confirmation #}
+            {{ form_row(formDataClient.confirm_password, {
+                'label' : 'Confirmation', 
+                'label_attr' : {
+                    'class': 'col-12 text-center mb-0'
+                }, 
+                'attr' : {
+                    'class': 'form-control mb-4 text-center p-2',
+                    'placeholder' : 'Confirmation du mot de passe'
+                },
+                'errors': 'disable',
+            }) }}
+               
+            <div class="bg-danger text-light rounded opacity-1">
+                {{ form_errors(formDataClient.confirm_password )}}
+            </div>
 
-        <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Je modifie !</button>
-    {{ form_end(formDataClient) }}
+            <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">Je modifie !</button>
+        {{ form_end(formDataClient) }}
 
-</div> 
+    </div> 
+
 {% else %}
+
     {% include "/includes/notAccess.html.twig" %}
+
 {% endif %}
 
 {% endblock %}
