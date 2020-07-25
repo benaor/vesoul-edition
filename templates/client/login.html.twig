@@ -1,23 +1,28 @@
 {% extends '/extends/shopBase.html.twig' %}
 
+{% block style %}
+	<link rel="stylesheet" href="/css/client.css">
+{% endblock %}
+
+
 {% block title %}
 	{{ page_title }}
 {% endblock %}
 
 {% block content %}
-	<h1 class="text-center">{{ page_title }}</h1>
+	<form method="POST" action="{{ path('client_login') }}" class="col-3 bg-light px-4 py-3 rounded mx-auto">
+		<h1 class="text-center font-light p-2">{{ page_title }}</h1>
 
-	<form method="POST" action="{{ path('client_login') }}">
-		<div class="form-group">
-			<input type="text" placeholder="Adresse email" class="form-control" name="_username" required/>
+		<div class="form-group p-2">
+			<input type="text" placeholder="Adresse email" class="form-control text-center border" name="_username" required/>
 		</div>
 
-		<div class="form-group">
-			<input type="password" placeholder="Mot de passe" class="form-control" name="_password" required/>
+		<div class="form-group p-2">
+			<input type="password" placeholder="Mot de passe" class="form-control text-center border" name="_password" required/>
 		</div>
 
-		<div class="form-group">
-			<button type="submit" class="btn btn-success">Connexion</button>
-		</div>
+		<div class="form-group p-2">
+			<button type="submit" class="btn btn-lg btn-success col-12">Connexion</button>
+		</div>	
 	</form>
 {% endblock %}

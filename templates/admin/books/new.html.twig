@@ -33,8 +33,12 @@
 	{{ form_label(formNewBook.year) }}
 	{{ form_widget(formNewBook.year) }}
 
+{% if not editMode %}
+
 	{{ form_label(formNewBook.image) }}
 	{{ form_widget(formNewBook.image) }}
+
+{% endif %}
 
 	<div class="text-center">
 		<button type="submit" class="btn btn-secondary text-light">

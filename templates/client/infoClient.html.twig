@@ -1,24 +1,35 @@
 {% extends '/extends/shopBase.html.twig' %}
 
+
+{% block style %}
+	<link rel="stylesheet" href="/css/client.css">
+{% endblock %}
+
 {% block title %}
 	{{ page_title }}
 {% endblock %}
 
 {% block content %}
     
+<div class="m-auto bg-light col-4 py-5 px-5 rounded">
+    <h1 class="text-center m-3">{{ page_title }} !</h1>
 
-    <h1>{{ page_title }} !</h1>
-
-    <div class="row flex-column align-items-center">
-
-        <p>Email : {{client.email}}</p>
-        <p>Username : {{client.username}}</p>
-        <p>Prénom : {{client.firstname}}</p>
-        <p>Nom : {{client.lastname}}</p>
-        <p>Téléphone : {{client.phone}}</p>
+        <p class="text-center mb-0"> Email</p>
+        <p class="p-2 border col-12 text-center bg-white"> {{client.email}}</p> 
         
-    </div>
-    <a href="{{ path('client_edit', {'id': client.id })}}"> modifier </a>
+        <p class="text-center mb-0"> Username</p>
+        <p class="p-2 border col-12 text-center bg-white">{{client.username}}</p> 
 
+        <p class="text-center mb-0"> Prénom</p>
+        <p class="p-2 border col-12 text-center bg-white"> {{client.firstname}}</p> 
+
+        <p class="text-center mb-0">Nom </p>
+        <p class="p-2 border col-12 text-center bg-white">{{client.lastname}}</p> 
+
+        <p class="text-center mb-0"> Téléphone </p>
+        <p class="p-2 border col-12 text-center bg-white">{{client.phone}}</p> 
+        
+    <a href="{{ path('client_edit', {'id': client.id })}}" class="btn btn-lg btn-primary p-2 col-12"> modifier </a>
+<div>
 
 {% endblock %}

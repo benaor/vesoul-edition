@@ -2,6 +2,7 @@
 
 {% block stylesheet %}
 	<link rel="stylesheet" href="/css/shop.css">
+	{% block style %}{% endblock %}
 {% endblock %}
 
 {% block body %}
@@ -11,7 +12,7 @@
 		{% include "/includes/burger.html.twig" %}
 		{% include "/includes/navbar.html.twig" %}
 
-		<main class="container">
+		<main class="container shopContainer">
 			{% block content %}{% endblock %}
 		</main>
 

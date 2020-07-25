@@ -35,14 +35,14 @@
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                    <a class="dropdown-item" href="{{path('client_infos')}}" class="">Mon compte</a>
+                        <a class="dropdown-item" href="{{path('client_infos')}}" class="">Mon compte</a>
 
-                    {% if is_granted('ROLE_ADMIN') %}
-                    <a class="dropdown-item nav-link" href="{{path('dashboard_admin')}}">Administration</a>
-                    {% endif %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <a class="dropdown-item nav-link" href="{{path('dashboard_admin')}}">Administration</a>
+                        {% endif %}
 
-                    <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ path('client_logout') }}">Deconnexion<a>
+                        <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('client_logout') }}">Deconnexion<a>
 
                     </div>
                 </li>
