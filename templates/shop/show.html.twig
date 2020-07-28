@@ -6,15 +6,13 @@
 
 {% block content %}
 	<div id="product-page" class="m-0 p-0">
-			<div class="row m-0 p-5">
+			<div class="row p-5 justify-content-between">
 
 				{# ==> Section gauche avec les images ======================================== #}
-				<div
-					id="preview-section" class="col-6 m-0 p-0 d-flex align-items-end d-flex flex-column">
+				<div id="preview-section" class="col-4 p-0 d-flex align-items-end d-flex flex-column">
 
 					{# ---------- Image principale ---------- #}
-					<img
-					id="preview-img" src="{{ asset('img/' ~ book.image ) }}" alt="livre">
+					<img id="preview-img" src="{{ asset('img/' ~ book.image ) }}" alt="livre">
 
 					{# ---------- Carousel ----------- #}
 					<div id="preview-small-section" class="d-flex align-items-center justify-content-between pt-2">
@@ -31,57 +29,84 @@
 				</div>
 
 				{# ==> Section de droite informations ======================================== #}
-				<div id="detail-section" class="col-6 m-0 p-5">
-					<h2 class="mb-4">{{book.title}}</h2>
-					{# <h3 class="m-0 pt-3 pb-4">{{book.firstname}}
-										{{book.lastname}}</h3> #}
-					<h4>Genre : 
+				<div id="detail-section" class="col-8 px-5">
+
+					{# the book's title  #}
+					<h2 class="pb-2"> {{book.title}} </h2>
+
+					{# the book's author  #}
+					<h3 class="py-2">(Auteur)</h3>
+
+					{# category of the book  #}
+					<h4 class="py-2">Genre : 
 						{% for category in book.categories %}
+
 							{{ category.name }}
+
+							{% if not loop.last %}
+							,
+							{% elseif loop.last %}
+							.
+							{% endif %}
+							
 						{% endfor %}
 					</h4>
 
-					<div class="d-flex align-items-center pb-4">
-						<div id="stock-circle" class="mr-3"></div>
-						<p class="stock m-0">en stock</p>
-					</div>
-				</div>
-				<p id="description">{{book.description}}</p>
+					{# For stock informations  #}
+					<div class="d-flex align-items-center py-2">
 
-				{# Année de sortie #}
-				<div class="py-2 d-flex align-items-center">
-					<p class="legend m-0 pr-2">Année :
-					</p>
-					<p class="m-0">{{book.year}}</p>
-				</div>
-				{# fin année de sortie #}
+						{% if book.stock >= 10 %}
+							<div id="stock-circle" class="mr-3"></div>
+							<p class="stock m-0">en stock</p>
 
-				<div class="pt-2 d-flex align-items-center">
-					<p class="legend m-0 pr-2">Code ISBN :</p>
-					<p class="m-0">{{book.isbn}}</p>
-				</div>
-                
-				<div class="d-flex justify-content-between">
-					<div class="d-flex align-items-center">
-						<p class="legend m-0 pr-2">Prix publique :</p>
-						<p class="m-0" id="price">{{book.price}}
-							€</p>
+						{% elseif book.stock < 10 and book.stock > 0 %}
+							<div id="limit-stock-circle" class="mr-3"></div>
+							<p class="limit-stock m-0">plus que {{ book.stock }} disponibles !</p>
+
+						{% else %}
+							<div id="no-stock-circle" class="mr-3"></div>
+							<p class="no-stock m-0">Actuellement indisponible !</p>
+
+						{% endif %}
+
 					</div>
-					<div class="m-0 py-5 d-flex align-items-center">
-						<p class="legend m-0 pr-4">Quantité :</p>
-						<p class="m-0 p-3" id="quantite">1</p>
-						<button class="btn-quantity btn btn-info d-flex justify-content-center align-items-center product-details-add">+</button>
-						<button class="btn-quantity btn btn-light d-flex justify-content-center align-items-center">-</button>
+					
+					{# book descrption  #}
+					<p class="py-2">{{book.description}}</p>
+
+					<div class="d-flex col-6 justify-content-between p-0">
+
+						{# Année de sortie #}
+						<p class="legend">Année : <span class="text-dark font-weight-bold"> {{book.year}} </span> </p>
+						
+						{# code ISBN #}
+						<p class="legend">Code ISBN : <span class="text-dark font-weight-bold"> {{book.isbn}} </span </p>	
+
 					</div>
-				</div>
-				<div class="d-flex justify-content-center">
-					<form action="/panier/add/{{ book.id }}">
-						<input type="hidden" value="1" name="quantity">
-						<button class="btn btn-info d-flex justify-content-center align-items-center mt-4">
+
+					{# Price of book #}
+					<div class="d-flex justify-content-between py-2">
+						<div class="d-flex align-items-center">
+							<p class="legend pr-2">Prix publique : </p>
+							<p id="price"> {{book.price}}€ </p>
+						</div>
+					</div>
+					
+					{# Button for Add to cart #}
+					<div class="d-flex align-items-center py-2">
+						{# <button class="btn-quantity btn btn-light d-flex justify-content-center align-items-center">-</button> #}
+						<a href="{{ path('cart_add', {'id': book.id }) }}" type="button" class="btn btn-info d-flex">
 							<i class="fas fa-shopping-cart fa-2x pr-2"></i>
-							Ajouter au panier</button>
-					</form>
+							Ajouter au panier
+						</a>
+						{# <button class="btn-quantity btn btn-info d-flex justify-content-center align-items-center product-details-add">+</button> #}
+					</div>
 				</div>
+
+
+				
+
+                
 
 					<section class="avis">
 						<h1> voir les {{ book.avis | length }} avis clients ! </h1> 
