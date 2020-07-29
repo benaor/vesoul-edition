@@ -1,80 +1,90 @@
 {% extends '/extends/shopBase.html.twig' %}
 
+{% block style %}
+	<link rel="stylesheet" href="/css/client.css">
+{% endblock %}
+
 {% block title %}
 	{{ controller_name }}
 {% endblock %}
 
 {% block content %}
 	{% if articlesInCart | length > 0 %}
-		<div id="panier" class="p-0 m-0">
-			<div class="row">
-				<div class="col-12 py-4">
-					<h1>Votre panier</h1>
-				</div>
+		<div id="panier" class="col-11 bg-light px-4 py-3 rounded mx-auto">
+
+			<h1 class="text-center font-light p-2">Votre panier</h1>
+
+			<!-- ===================== Partie Articles ======================== -->
+
+			<!-- - Légende - -->
+			<table class="table">
+				<thead class="legend">
+					<tr>
+						<th>livre</th>
+						<th class="text-center">prix unitaire</th>
+						<th class="text-center">quantité</th>
+						<th class="text-center">total</th>
+						<th class="text-center">action</th>
+					</tr>
+				</thead>
+
+				{# Informations on the command  #}
+				<tbody>
+					{% for articleInCart in articlesInCart %}
+						<tr>
+							<td>
+								{{ articleInCart.book.title }}
+							</td>
+							<td class="text-center">
+								{{ articleInCart.book.price }}
+							</td>
+							<td class="text-center">
+								{{ articleInCart.quantity }}
+							</td>
+							<td class="text-center">
+								{{ articleInCart.book.price * articleInCart.quantity }} €
+							</td>
+							<td class="text-center">
+								<a href="{{ path('cart_remove', { 'id': articleInCart.book.id }) }}" class="btn btn-danger btn-sm">
+									<i class="fas fa-minus"></i>
+								</a>
+
+								<a href="{{ path('cart_add', {'id' : articleInCart.book.id }) }}" class="btn btn-success btn-lg mx-2">
+									<i class="fas fa-cart-plus"></i>
+								</a>
+
+								<a href="{{ path('cart_delete', { 'id': articleInCart.book.id }) }}" class="btn btn-danger btn-sm">
+									<i class="fas fa-trash"></i>
+								</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+
+				{# Footer du tableau  #}
+				<tfoot>
+					<tr>
+						<td class="text-right font-weight-bold" colspan="3"> Prix TTC : </td>
+						<td class="font-weight-bold">{{ total }} €</td>
+					</tr>
+				</tfoot>
+			</table>
+
+			<p class="text-center">
+				<a href="#" class="btn btn-lg btn-success"> Je valide ma commande ! </a>
+			</p>
+		{% else %}
+			<div class="col-5 bg-light px-4 py-3 rounded mx-auto">
+				<h1 class="text-center font-light p-2"> Votre panier est vide </h1>
+
+				<p class="text-center p-2">
+					Consulter la boutique et ajoutez vos livres pour les commander
+				</p>
+
+				<div class="form-group p-2 text-center">
+					<a href="{{path('shop-home')}}" class="btn btn-lg btn-success text-light col-10"> Retour a la boutique </a>
+				</div>	
 			</div>
-			<div
-				class="row pr-3">
-				<!-- ===================== Partie Articles ======================== -->
-				<div class="col-9 px-3">
+		{% endif %}
 
-					<!-- - Légende - -->
-					<table class="table">
-						<thead class="row legend m-0 mb-2 p-0">
-							<tr class="col-12 d-flex justify-content-between align-items-center">
-								<th class="m-o pr-3 livre">livre</th>
-								<th class="m-o pr-3 prix">prix</th>
-								<th class="m-o pr-3 qty">quantité</th>
-								<th class="m-o pr-3 ">total</th>
-								<th class="m-o pr-3 ">action ?</th>
-							</tr>
-						</thead>
-
-						<tbody class="row article m-0 my-2 p-0">
-							{% for articleInCart in articlesInCart %}
-								<tr>
-									<td>
-										{{ articleInCart.book.title }}
-									</td>
-									<td>
-										{{ articleInCart.book.price }}
-									</td>
-									<td>
-										{{ articleInCart.quantity }}
-									</td>
-									<td>
-										{{ articleInCart.book.price * articleInCart.quantity }}
-									</td>
-									<td>
-										<a href="{{ path('cart_remove', { 'id': articleInCart.book.id }) }}" class="btn btn-danger btn-sm" role="button">
-											<i class="fas fa-minus"></i>
-										</a>
-
-										<a href="{{ path('cart_add', {'id' : articleInCart.book.id }) }}" class="btn btn-success btn-lg mx-2">
-											<i class="fas fa-cart-plus"></i>
-										</a>
-
-										<a href="{{ path('cart_delete', { 'id': articleInCart.book.id }) }}" class="btn btn-danger btn-sm" role="button">
-											<i class="fas fa-trash"></i>
-										</a>
-									</td>
-								</tr>
-							{% endfor %}
-						</tbody>
-						<tfoot>
-							<tr>
-								<td class="text-right font-weight-bold" colspan="3">total :</td>
-								<td class="font-weight-bold">{{ total }}</td>
-								<td></td>
-							</tr>
-						</tfoot>
-
-					</table>
-
-
-				{% else %}
-					<p class="mx-auto text-center">
-						votre panier est vide
-					</p>
-				{% endif %}
-
-			{% endblock %}
+	{% endblock %}
