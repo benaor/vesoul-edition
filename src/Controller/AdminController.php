@@ -88,4 +88,13 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('admin_crud_books');
     }
 
+    
+
+    /**
+     * @Route("/commandes", name="dashboard_admin_commandes")
+     */
+    public function commandesAdmin()
+    {
+        return $this->render('admin/commandes.html.twig');
+    }
 }
